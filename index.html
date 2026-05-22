@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELITE EDGE TRAINING | Premium Leadership Development</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+  :root {
+    --orange: #FF4D00;
+    --orange-dim: rgba(255,77,0,0.12);
+    --orange-glow: rgba(255,77,0,0.25);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: #080808;
+    color: #fff;
+    cursor: none;
+    overflow-x: hidden;
+  }
+
+  /* CUSTOM CURSOR */
+  #cursor {
+    position: fixed;
+    width: 10px; height: 10px;
+    background: var(--orange);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: width .2s, height .2s, background .2s;
+  }
+  #cursor-ring {
+    position: fixed;
+    width: 36px; height: 36px;
+    border: 1.5px solid rgba(255,77,0,0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: all .12s ease-out;
+  }
+  body:hover #cursor { opacity: 1; }
+
+  /* TYPOGRAPHY */
+  .display-font {
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.028;
+    pointer-events: none;
+    z-index: 9990;
+  }
+
+  /* ORANGE LINE ACCENT */
+  .orange-line {
+    display: inline-block;
+    width: 48px;
+    height: 3px;
+    background: var(--orange);
+    margin-bottom: 1.5rem;
+    border-radius: 2px;
+  }
+
+  /* HERO */
+  .hero-bg {
+    background-image:
+      linear-gradient(to bottom, rgba(8,8,8,0.55) 0%, rgba(8,8,8,0.85) 70%, rgba(8,8,8,1) 100%),
+      url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=2000&q=80');
+    background-size: cover;
+    background-position: center 30%;
+    position: relative;
+  }
+
+  /* MENU BUTTON */
+  .menu-btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color .25s;
+    background: none;
+    border: none;
+    cursor: none;
+  }
+  .menu-btn:hover { color: var(--orange); }
+  .menu-btn .arrow-box {
+    width: 38px; height: 38px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color .25s, background .25s;
+    font-size: 1rem;
+  }
+  .menu-btn:hover .arrow-box {
+    border-color: var(--orange);
+    background: var(--orange-dim);
+    color: var(--orange);
+  }
+
+  /* HERO WIDGET */
+  .hero-widget {
+    background: rgba(12,12,12,0.75);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  /* SLIDER */
+  .slider-wrap { overflow: hidden; position: relative; }
+  .slider-track {
+    display: flex;
+    transition: transform .8s cubic-bezier(.4,0,.2,1);
+    will-change: transform;
+  }
+  .slider-track img {
+    flex-shrink: 0;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* ORANGE CTA BUTTON */
+  .cta-btn {
+    background: var(--orange);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform .2s, box-shadow .2s;
+    cursor: none;
+    border: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.12);
+    opacity: 0;
+    transition: opacity .2s;
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,77,0,0.35); }
+  .cta-btn:hover::after { opacity: 1; }
+
+  /* OUTLINE BUTTON */
+  .outline-btn {
+    border: 1.5px solid var(--orange);
+    color: var(--orange);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background .2s, color .2s, transform .2s;
+    cursor: none;
+    background: transparent;
+  }
+  .outline-btn:hover {
+    background: var(--orange);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  /* SECTION LABELS */
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--orange);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  /* CERT CARD */
+  .cert-card {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 2rem 1.2rem;
+    text-align: center;
+    transition: border-color .3s, background .3s;
+    position: relative;
+    overflow: hidden;
+    cursor: none;
+  }
+  .cert-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--orange);
+    transform: scaleX(0);
+    transition: transform .3s;
+    transform-origin: left;
+  }
+  .cert-card:hover {
+    border-color: rgba(255,77,0,0.35);
+    background: rgba(255,77,0,0.04);
+  }
+  .cert-card:hover::before { transform: scaleX(1); }
+
+  /* TICKER */
+  .ticker-wrap {
+    overflow: hidden;
+    position: relative;
+  }
+  .ticker-wrap::before, .ticker-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .ticker-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, #0a0a0a, transparent);
+  }
+  .ticker-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, #0a0a0a, transparent);
+  }
+  .ticker-inner {
+    display: flex;
+    gap: 0;
+    animation: ticker 22s linear infinite;
+    white-space: nowrap;
+  }
+  .ticker-inner:hover { animation-play-state: paused; }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .ticker-item {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0 3.5rem;
+    color: rgba(255,255,255,0.22);
+    transition: color .3s;
+    cursor: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 2.5rem;
+    user-select: none;
+  }
+  .ticker-item:hover { color: rgba(255,255,255,0.85); }
+  .ticker-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--orange);
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  /* PROGRAM CARD */
+  .program-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media (max-width: 900px) {
+    .program-row { grid-template-columns: 1fr; gap: 2rem; }
+    .program-row .order-flip { order: -1 !important; }
+  }
+
+  /* EVENT ROW */
+  .event-row {
+    display: flex;
+    align-items: stretch;
+    background: rgba(14,14,14,0.9);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color .3s, transform .3s;
+    cursor: none;
+  }
+  .event-row:hover {
+    border-color: rgba(255,77,0,0.4);
+    transform: translateX(6px);
+  }
+  .event-img {
+    width: 280px;
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .event-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(14,14,14,0.5), transparent);
+  }
+
+  /* SIDE MENU */
+  #sideMenu {
+    position: fixed;
+    top: 0; right: 0; bottom: 0;
+    width: min(420px, 88vw);
+    background: #0c0c0c;
+    border-left: 1px solid rgba(255,77,0,0.2);
+    z-index: 2000;
+    transform: translateX(100%);
+    transition: transform .5s cubic-bezier(0.32,0.72,0,1);
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #sideMenu.open { transform: translateX(0); }
+  #menuOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(4px);
+    z-index: 1999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .4s;
+  }
+  #menuOverlay.open { opacity: 1; pointer-events: all; }
+
+  .menu-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    color: rgba(255,255,255,0.15);
+    transition: color .25s, letter-spacing .25s;
+    display: block;
+    text-decoration: none;
+    line-height: 1.1;
+    cursor: none;
+    position: relative;
+  }
+  .menu-link::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 50%; transform: translateY(-50%);
+    width: 0; height: 3px;
+    background: var(--orange);
+    transition: width .25s;
+    border-radius: 2px;
+  }
+  .menu-link:hover {
+    color: #fff;
+    letter-spacing: 0.01em;
+  }
+  .menu-link:hover::before { width: 1.5rem; }
+
+  /* CONTACT FORM */
+  .form-input {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 1.1rem 1.4rem;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    width: 100%;
+    outline: none;
+    transition: border-color .25s, background .25s;
+    cursor: none;
+  }
+  .form-input::placeholder { color: rgba(255,255,255,0.3); }
+  .form-input:focus {
+    border-color: var(--orange);
+    background: rgba(255,77,0,0.05);
+  }
+
+  /* FOOTER MAP */
+  .map-wrap {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* FADE-IN ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* HERO COUNTER NUMBERS */
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 3.4rem;
+    font-weight: 900;
+    line-height: 1;
+    color: #fff;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    margin-top: 4px;
+  }
+
+  /* DIAGONAL STRIPE ACCENT */
+  .stripe-accent {
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, rgba(255,77,0,0.5), transparent);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+
+  /* VIDEO SECTION */
+  .video-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.45);
+    transition: background .3s;
+    cursor: none;
+  }
+  .video-overlay:hover { background: rgba(0,0,0,0.2); }
+  .play-btn {
+    width: 80px; height: 80px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem;
+    color: #fff;
+    transition: transform .25s, box-shadow .25s;
+    flex-shrink: 0;
+  }
+  .video-overlay:hover .play-btn {
+    transform: scale(1.12);
+    box-shadow: 0 0 0 16px rgba(255,77,0,0.18);
+  }
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width: 768px) {
+    .event-img { width: 120px; }
+    .program-row { gap: 1.5rem; }
+    .stat-num { font-size: 2.4rem; }
+  }
+  @media (max-width: 600px) {
+    .event-row { flex-direction: column; }
+    .event-img { width: 100%; height: 180px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- MENU OVERLAY -->
+<div id="menuOverlay" onclick="closeMenu()"></div>
+
+<!-- ===== HERO ===== -->
+<section class="hero-bg min-h-screen flex flex-col relative" style="min-height:100svh;">
+
+  <!-- Vertical accent lines -->
+  <div class="stripe-accent" style="top:0;bottom:0;left:calc(50% - 1px);opacity:0.12;"></div>
+
+  <!-- TOP BAR -->
+  <div class="flex justify-between items-center px-8 md:px-14 py-8 relative z-10">
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-3 no-underline" style="cursor:none;">
+      <div style="width:44px;height:44px;background:var(--orange);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.25rem;letter-spacing:-0.02em;flex-shrink:0;">EE</div>
+      <div>
+        <div class="display-font font-black text-white" style="font-size:1.3rem;letter-spacing:0.05em;line-height:1;">ELITE EDGE</div>
+        <div style="font-size:0.6rem;letter-spacing:0.25em;color:rgba(255,255,255,0.4);font-weight:500;margin-top:2px;">TRAINING</div>
+      </div>
+    </a>
+
+    <button class="menu-btn" onclick="openMenu()">
+      MENU
+      <div class="arrow-box">→</div>
+    </button>
+  </div>
+
+  <!-- MAIN HERO CONTENT -->
+  <div class="flex-1 flex flex-col justify-end pb-14 px-8 md:px-14 relative z-10">
+    <!-- Headline -->
+    <div class="mb-12 max-w-3xl">
+      <span class="section-label">Bangladesh's Premier</span>
+      <h1 class="display-font font-black text-white leading-none" style="font-size:clamp(3.5rem,9vw,7.5rem);">LEADERSHIP<br><span style="color:var(--orange);-webkit-text-stroke:0px;text-stroke:0px;">FORGED.</span><br>NOT TAUGHT.</h1>
+    </div>
+
+    <!-- BOTTOM ROW: widget + stats + CTA -->
+    <div class="flex flex-wrap gap-6 items-end">
+
+      <!-- Left: Sliding widget -->
+      <div class="hero-widget" style="width:260px;flex-shrink:0;">
+        <div class="slider-wrap" style="height:170px;" id="heroSliderWrap" onmouseenter="pauseHero()" onmouseleave="resumeHero()">
+          <div class="slider-track" id="heroTrack" style="height:100%;"></div>
+        </div>
+        <div onclick="openGoogleForm()" style="padding:14px 16px;cursor:none;" class="group">
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.2em;color:var(--orange);margin-bottom:4px;">ONGOING SESSIONS</div>
+          <div style="font-size:0.82rem;color:rgba(255,255,255,0.6);">Click to register instantly →</div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="flex gap-8 ml-2">
+        <div>
+          <div class="stat-num">10<span style="color:var(--orange);">+</span></div>
+          <div class="stat-label">YEARS ACTIVE</div>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,0.1);align-self:stretch;"></div>
+        <div>
+          <div class="stat-num">2K<span style="color:var(--orange);">+</span></div>
+          <div class="stat-label">PROFESSIONALS</div>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,0.1);align-self:stretch;"></div>
+        <div>
+          <div class="stat-num">50<span style="color:var(--orange);">+</span></div>
+          <div class="stat-label">CORP CLIENTS</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="ml-auto">
+        <button class="cta-btn" onclick="document.getElementById('trainings').scrollIntoView({behavior:'smooth'})" style="font-size:1.1rem;padding:1.1rem 2.4rem;">
+          EXPLORE PROGRAMS
+          <i class="fa-solid fa-arrow-right-long"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-40">
+    <div style="width:1px;height:40px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,0.6));"></div>
+    <span style="font-size:0.6rem;letter-spacing:0.25em;font-weight:600;">SCROLL</span>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="py-28 px-8 md:px-14" style="background:#0a0a0a;" id="about">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-12 gap-16 items-start">
+
+      <!-- Left -->
+      <div class="md:col-span-6 fade-up">
+        <span class="section-label">Who We Are</span>
+        <div class="orange-line"></div>
+        <h2 class="display-font font-black leading-none mb-8" style="font-size:clamp(3rem,6vw,5.5rem);">ABOUT<br>ELITE EDGE</h2>
+        <p style="font-size:1.1rem;color:rgba(255,255,255,0.65);line-height:1.8;max-width:520px;">
+          Elite Edge delivers premium, high-impact leadership and professional development training across Bangladesh and beyond. With over a decade of excellence, we transform individuals and organizations through experiential learning that produces measurable, lasting results.
+        </p>
+        <div style="margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.08);">
+          <p style="color:rgba(255,255,255,0.4);font-size:0.85rem;letter-spacing:0.08em;font-weight:500;margin-bottom:1rem;">SERVING INDUSTRIES</p>
+          <div class="flex flex-wrap gap-3">
+            <span style="border:1px solid rgba(255,255,255,0.12);padding:.4rem 1.1rem;border-radius:100px;font-size:0.82rem;color:rgba(255,255,255,0.6);">Finance</span>
+            <span style="border:1px solid rgba(255,255,255,0.12);padding:.4rem 1.1rem;border-radius:100px;font-size:0.82rem;color:rgba(255,255,255,0.6);">Telecom</span>
+            <span style="border:1px solid rgba(255,255,255,0.12);padding:.4rem 1.1rem;border-radius:100px;font-size:0.82rem;color:rgba(255,255,255,0.6);">FMCG</span>
+            <span style="border:1px solid rgba(255,255,255,0.12);padding:.4rem 1.1rem;border-radius:100px;font-size:0.82rem;color:rgba(255,255,255,0.6);">Healthcare</span>
+            <span style="border:1px solid rgba(255,255,255,0.12);padding:.4rem 1.1rem;border-radius:100px;font-size:0.82rem;color:rgba(255,255,255,0.6);">Tech</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Certifications -->
+      <div class="md:col-span-6 fade-up" style="transition-delay:.15s;">
+        <div class="grid grid-cols-3 gap-4">
+          <div class="cert-card">
+            <div style="font-size:2.2rem;margin-bottom:.8rem;">🏅</div>
+            <div class="display-font font-black text-white" style="font-size:1.6rem;margin-bottom:.3rem;">ICF</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;font-weight:500;">ACCREDITED</div>
+          </div>
+          <div class="cert-card">
+            <div style="font-size:2.2rem;margin-bottom:.8rem;">📋</div>
+            <div class="display-font font-black text-white" style="font-size:1.6rem;margin-bottom:.3rem;">PMP</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;font-weight:500;">CERTIFIED</div>
+          </div>
+          <div class="cert-card">
+            <div style="font-size:2.2rem;margin-bottom:.8rem;">⚙️</div>
+            <div class="display-font font-black text-white" style="font-size:1.3rem;margin-bottom:.3rem;">SIX SIGMA</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;font-weight:500;">BLACK BELT</div>
+          </div>
+        </div>
+
+        <!-- Big quote / call-out -->
+        <div style="margin-top:1.5rem;background:rgba(255,77,0,0.07);border:1px solid rgba(255,77,0,0.2);border-radius:16px;padding:2rem;">
+          <div style="font-size:3rem;line-height:1;color:var(--orange);font-family:'Barlow Condensed',sans-serif;font-weight:900;margin-bottom:0.5rem;">"</div>
+          <p style="font-size:1rem;color:rgba(255,255,255,0.7);line-height:1.7;margin:0;">We don't train people to be better employees. We train them to become irreplaceable leaders.</p>
+          <div style="margin-top:1rem;font-size:0.8rem;color:rgba(255,77,0,0.7);font-weight:600;letter-spacing:0.1em;">— ELITE EDGE PHILOSOPHY</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIDEO ===== -->
+<section class="py-8 px-8 md:px-14" style="background:#080808;">
+  <div class="max-w-7xl mx-auto fade-up">
+    <div style="position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);aspect-ratio:16/9;background:#111;">
+      <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1400&q=80" style="width:100%;height:100%;object-fit:cover;opacity:0.6;" alt="Video thumbnail">
+      <div class="video-overlay" onclick="openVideoModal()">
+        <div style="text-align:center;">
+          <div class="play-btn mx-auto mb-4"><i class="fa-solid fa-play" style="margin-left:5px;"></i></div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.2em;color:rgba(255,255,255,0.6);">WATCH OUR STORY</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLIENTS TICKER ===== -->
+<section class="py-16" style="background:#0a0a0a;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);">
+  <div style="text-align:center;margin-bottom:2.5rem;">
+    <span class="section-label" style="display:block;">Trusted by Industry Leaders</span>
+  </div>
+  <div class="ticker-wrap">
+    <div class="ticker-inner" id="clientTicker"></div>
+  </div>
+</section>
+
+<!-- ===== TRAINING PROGRAMS ===== -->
+<section id="trainings" class="py-28 px-8 md:px-14" style="background:#080808;">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-20 fade-up">
+      <span class="section-label">What We Offer</span>
+      <div class="orange-line" style="display:block;margin:0 auto 1.5rem;"></div>
+      <h2 class="display-font font-black" style="font-size:clamp(2.5rem,6vw,5rem);">SIGNATURE PROGRAMS</h2>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:6rem;">
+
+      <!-- PROGRAM 1 -->
+      <div class="program-row fade-up">
+        <div class="slider-wrap rounded-2xl overflow-hidden" style="height:480px;border:1px solid rgba(255,255,255,0.07);" onmouseenter="pauseSlider('s1')" onmouseleave="resumeSlider('s1')">
+          <div class="slider-track" id="sliderTrack-s1" style="height:100%;"></div>
+        </div>
+        <div style="padding:2rem 0;">
+          <span class="section-label" style="margin-bottom:1rem;">Program 01</span>
+          <h3 class="display-font font-black text-white" style="font-size:clamp(2.2rem,4vw,3.5rem);line-height:1.05;margin-bottom:1.5rem;">HIGH-PERFORMANCE<br>LEADERSHIP</h3>
+          <p style="color:rgba(255,255,255,0.55);font-size:1rem;line-height:1.8;max-width:420px;">Master executive presence, strategic decision-making, and transformational team leadership. Designed for mid to C-suite executives.</p>
+          <div style="margin-top:2rem;display:flex;gap:2rem;flex-wrap:wrap;">
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;color:var(--orange);">3</div>
+              <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;margin-top:2px;">DAYS</div>
+            </div>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;">24</div>
+              <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;margin-top:2px;">HOURS</div>
+            </div>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;">20</div>
+              <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;margin-top:2px;">MAX SEATS</div>
+            </div>
+          </div>
+          <button class="outline-btn mt-8" style="font-size:1rem;padding:.9rem 2rem;">LEARN MORE →</button>
+        </div>
+      </div>
+
+      <!-- PROGRAM 2 (reversed) -->
+      <div class="program-row fade-up">
+        <div style="padding:2rem 0;order:1;">
+          <span class="section-label" style="margin-bottom:1rem;">Program 02</span>
+          <h3 class="display-font font-black text-white" style="font-size:clamp(2.2rem,4vw,3.5rem);line-height:1.05;margin-bottom:1.5rem;">SALES MASTERY<br>& NEGOTIATION</h3>
+          <p style="color:rgba(255,255,255,0.55);font-size:1rem;line-height:1.8;max-width:420px;">Close bigger deals with unwavering confidence. Grounded in behavioral economics, NLP, and real-world negotiation frameworks.</p>
+          <div style="margin-top:2rem;display:flex;gap:2rem;flex-wrap:wrap;">
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;color:var(--orange);">2</div>
+              <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;margin-top:2px;">DAYS</div>
+            </div>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;">16</div>
+              <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;margin-top:2px;">HOURS</div>
+            </div>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;">25</div>
+              <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;margin-top:2px;">MAX SEATS</div>
+            </div>
+          </div>
+          <button class="outline-btn mt-8" style="font-size:1rem;padding:.9rem 2rem;">LEARN MORE →</button>
+        </div>
+        <div class="slider-wrap rounded-2xl overflow-hidden order-flip" style="height:480px;border:1px solid rgba(255,255,255,0.07);order:2;" onmouseenter="pauseSlider('s2')" onmouseleave="resumeSlider('s2')">
+          <div class="slider-track" id="sliderTrack-s2" style="height:100%;"></div>
+        </div>
+      </div>
+
+      <!-- PROGRAM 3 -->
+      <div class="program-row fade-up">
+        <div class="slider-wrap rounded-2xl overflow-hidden" style="height:480px;border:1px solid rgba(255,255,255,0.07);" onmouseenter="pauseSlider('s3')" onmouseleave="resumeSlider('s3')">
+          <div class="slider-track" id="sliderTrack-s3" style="height:100%;"></div>
+        </div>
+        <div style="padding:2rem 0;">
+          <span class="section-label" style="margin-bottom:1rem;">Program 03</span>
+          <h3 class="display-font font-black text-white" style="font-size:clamp(2.2rem,4vw,3.5rem);line-height:1.05;margin-bottom:1.5rem;">PUBLIC SPEAKING<br>& PRESENCE</h3>
+          <p style="color:rgba(255,255,255,0.55);font-size:1rem;line-height:1.8;max-width:420px;">Command any room with authority and authenticity. From keynotes to boardrooms — develop your voice, body language, and storytelling impact.</p>
+          <div style="margin-top:2rem;display:flex;gap:2rem;flex-wrap:wrap;">
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;color:var(--orange);">1</div>
+              <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;margin-top:2px;">DAY</div>
+            </div>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;">8</div>
+              <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;margin-top:2px;">HOURS</div>
+            </div>
+            <div>
+              <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;">15</div>
+              <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;margin-top:2px;">MAX SEATS</div>
+            </div>
+          </div>
+          <button class="outline-btn mt-8" style="font-size:1rem;padding:.9rem 2rem;">LEARN MORE →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== EVENTS ===== -->
+<section class="py-28 px-8 md:px-14" style="background:#0a0a0a;" id="events">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex justify-between items-end mb-16 flex-wrap gap-4 fade-up">
+      <div>
+        <span class="section-label">What's Coming</span>
+        <div class="orange-line"></div>
+        <h2 class="display-font font-black" style="font-size:clamp(2.5rem,6vw,5rem);line-height:1;">UPCOMING<br>EVENTS</h2>
+      </div>
+      <button class="outline-btn" style="font-size:0.9rem;padding:.8rem 1.8rem;">VIEW ALL →</button>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+
+      <!-- Event 1 -->
+      <div class="event-row fade-up" onclick="openGoogleForm()">
+        <div class="event-img" style="background-image:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80');min-height:160px;"></div>
+        <div style="flex:1;padding:2rem 2.5rem;display:flex;align-items:center;gap:3rem;flex-wrap:wrap;">
+          <div style="flex:1;min-width:220px;">
+            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.2em;color:var(--orange);margin-bottom:.5rem;">JUN 22–24, 2026 &nbsp;·&nbsp; DHAKA</div>
+            <h3 class="display-font font-black" style="font-size:1.9rem;line-height:1.1;margin-bottom:.5rem;">Advanced Leadership Bootcamp</h3>
+            <p style="color:rgba(255,255,255,0.45);font-size:0.88rem;">3-Day intensive for mid to senior-level executives</p>
+          </div>
+          <div>
+            <span class="cta-btn" style="font-size:0.9rem;padding:.8rem 1.8rem;pointer-events:none;">REGISTER NOW</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 2 -->
+      <div class="event-row fade-up" onclick="openGoogleForm()" style="transition-delay:.1s;">
+        <div class="event-img" style="background-image:url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&q=80');min-height:160px;"></div>
+        <div style="flex:1;padding:2rem 2.5rem;display:flex;align-items:center;gap:3rem;flex-wrap:wrap;">
+          <div style="flex:1;min-width:220px;">
+            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.2em;color:var(--orange);margin-bottom:.5rem;">JUL 12, 2026 &nbsp;·&nbsp; ONLINE + DHAKA</div>
+            <h3 class="display-font font-black" style="font-size:1.9rem;line-height:1.1;margin-bottom:.5rem;">Public Speaking Mastery</h3>
+            <p style="color:rgba(255,255,255,0.45);font-size:0.88rem;">Master powerful presentations and executive stage presence</p>
+          </div>
+          <div>
+            <span class="cta-btn" style="font-size:0.9rem;padding:.8rem 1.8rem;pointer-events:none;">REGISTER NOW</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 3 -->
+      <div class="event-row fade-up" onclick="openGoogleForm()" style="transition-delay:.2s;">
+        <div class="event-img" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80');min-height:160px;"></div>
+        <div style="flex:1;padding:2rem 2.5rem;display:flex;align-items:center;gap:3rem;flex-wrap:wrap;">
+          <div style="flex:1;min-width:220px;">
+            <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.2em;color:var(--orange);margin-bottom:.5rem;">AUG 8–9, 2026 &nbsp;·&nbsp; DHAKA</div>
+            <h3 class="display-font font-black" style="font-size:1.9rem;line-height:1.1;margin-bottom:.5rem;">Sales Mastery Intensive</h3>
+            <p style="color:rgba(255,255,255,0.45);font-size:0.88rem;">Two-day deep dive into high-ticket closing and negotiation</p>
+          </div>
+          <div>
+            <span class="cta-btn" style="font-size:0.9rem;padding:.8rem 1.8rem;pointer-events:none;">REGISTER NOW</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="py-28 px-8 md:px-14" style="background:#080808;" id="contact">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-16 items-start">
+
+    <!-- Left -->
+    <div class="md:col-span-5 fade-up">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:2rem;">
+        <div style="width:52px;height:52px;background:var(--orange);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.4rem;flex-shrink:0;">EE</div>
+        <div class="display-font font-black" style="font-size:1.5rem;letter-spacing:0.05em;">ELITE EDGE</div>
+      </div>
+      <div class="orange-line"></div>
+      <h2 class="display-font font-black" style="font-size:clamp(2.5rem,5vw,4rem);line-height:1.05;margin-bottom:1.5rem;">READY TO<br>ELEVATE?</h2>
+      <p style="font-size:1rem;color:rgba(255,255,255,0.55);line-height:1.8;max-width:380px;">Reach out for corporate training, open workshops, or personalized executive coaching. We'll get back within 24 hours.</p>
+
+      <div style="margin-top:3rem;display:flex;flex-direction:column;gap:1.2rem;">
+        <div style="display:flex;align-items:center;gap:1rem;">
+          <div style="width:42px;height:42px;background:rgba(255,77,0,0.1);border:1px solid rgba(255,77,0,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-location-dot" style="color:var(--orange);"></i></div>
+          <div style="font-size:0.9rem;color:rgba(255,255,255,0.55);">Gulshan-2, Dhaka-1212, Bangladesh</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem;">
+          <div style="width:42px;height:42px;background:rgba(255,77,0,0.1);border:1px solid rgba(255,77,0,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-envelope" style="color:var(--orange);"></i></div>
+          <div style="font-size:0.9rem;color:rgba(255,255,255,0.55);">info@eliteedge.com.bd</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem;">
+          <div style="width:42px;height:42px;background:rgba(255,77,0,0.1);border:1px solid rgba(255,77,0,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-phone" style="color:var(--orange);"></i></div>
+          <div style="font-size:0.9rem;color:rgba(255,255,255,0.55);">+880 1700 000 000</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="md:col-span-7 fade-up" style="transition-delay:.15s;">
+      <div style="background:rgba(14,14,14,0.8);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:2.5rem;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+          <input type="text" placeholder="Full Name" class="form-input">
+          <input type="email" placeholder="Email Address" class="form-input">
+        </div>
+        <input type="tel" placeholder="Contact Number" class="form-input" style="margin-bottom:1rem;">
+        <select class="form-input" style="margin-bottom:1rem;appearance:none;">
+          <option value="" disabled selected style="background:#111;">Program of Interest</option>
+          <option style="background:#111;">High-Performance Leadership</option>
+          <option style="background:#111;">Sales Mastery & Negotiation</option>
+          <option style="background:#111;">Public Speaking & Presence</option>
+          <option style="background:#111;">Corporate Training Package</option>
+        </select>
+        <textarea placeholder="Your Message" rows="5" class="form-input" style="margin-bottom:1.5rem;resize:none;"></textarea>
+        <button class="cta-btn w-full" onclick="submitForm()" style="font-size:1.1rem;padding:1.2rem;justify-content:center;">
+          SEND MESSAGE <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer style="background:#050505;border-top:1px solid rgba(255,255,255,0.06);padding-top:3rem;">
+
+  <!-- Map -->
+  <div style="max-width:90%;margin:0 auto 3rem;" class="map-wrap">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116609.11786634815!2d90.34933385!3d23.7808875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b0a8c53be3%3A0x10ee0f84e50f7e41!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1234567890"
+      width="100%" height="380" style="border:0;display:block;" allowfullscreen loading="lazy">
+    </iframe>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:0 2rem 3rem;">
+    <!-- Logo + address row -->
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:2rem;">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+          <div style="width:36px;height:36px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1rem;">EE</div>
+          <span class="display-font font-black" style="font-size:1.15rem;letter-spacing:0.06em;">ELITE EDGE TRAINING</span>
+        </div>
+        <div style="font-size:0.85rem;color:rgba(255,255,255,0.4);line-height:1.7;">
+          Gulshan-2, Dhaka-1212<br>Bangladesh
+        </div>
+      </div>
+
+      <nav style="display:flex;gap:2.5rem;flex-wrap:wrap;align-items:center;">
+        <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.9rem;letter-spacing:0.15em;color:rgba(255,255,255,0.4);text-decoration:none;transition:color .2s;cursor:none;" onmouseover="this.style.color='#FF4D00'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">HOME</a>
+        <a href="#about" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.9rem;letter-spacing:0.15em;color:rgba(255,255,255,0.4);text-decoration:none;transition:color .2s;cursor:none;" onmouseover="this.style.color='#FF4D00'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">ABOUT</a>
+        <a href="#trainings" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.9rem;letter-spacing:0.15em;color:rgba(255,255,255,0.4);text-decoration:none;transition:color .2s;cursor:none;" onmouseover="this.style.color='#FF4D00'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">TRAININGS</a>
+        <a href="#events" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.9rem;letter-spacing:0.15em;color:rgba(255,255,255,0.4);text-decoration:none;transition:color .2s;cursor:none;" onmouseover="this.style.color='#FF4D00'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">EVENTS</a>
+        <a href="#contact" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.9rem;letter-spacing:0.15em;color:rgba(255,255,255,0.4);text-decoration:none;transition:color .2s;cursor:none;" onmouseover="this.style.color='#FF4D00'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">CONTACT</a>
+      </nav>
+
+      <div style="display:flex;gap:1rem;align-items:center;">
+        <a href="#" style="width:40px;height:40px;border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);text-decoration:none;transition:all .2s;cursor:none;font-size:1rem;" onmouseover="this.style.borderColor='var(--orange)';this.style.color='var(--orange)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='rgba(255,255,255,0.4)'"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" style="width:40px;height:40px;border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);text-decoration:none;transition:all .2s;cursor:none;font-size:1rem;" onmouseover="this.style.borderColor='var(--orange)';this.style.color='var(--orange)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='rgba(255,255,255,0.4)'"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" style="width:40px;height:40px;border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);text-decoration:none;transition:all .2s;cursor:none;font-size:1rem;" onmouseover="this.style.borderColor='var(--orange)';this.style.color='var(--orange)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='rgba(255,255,255,0.4)'"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" style="width:40px;height:40px;border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);text-decoration:none;transition:all .2s;cursor:none;font-size:1rem;" onmouseover="this.style.borderColor='var(--orange)';this.style.color='var(--orange)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='rgba(255,255,255,0.4)'"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div style="font-size:0.78rem;color:rgba(255,255,255,0.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;">
+      <span>© 2026 Elite Edge Training. All Rights Reserved.</span>
+      <span>Dhaka, Bangladesh</span>
+    </div>
+  </div>
+</footer>
+
+<!-- SIDE MENU -->
+<div id="sideMenu">
+  <div style="padding:2.5rem;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4rem;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:36px;height:36px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;">EE</div>
+        <span class="display-font font-black" style="font-size:1.1rem;letter-spacing:0.06em;">ELITE EDGE</span>
+      </div>
+      <button onclick="closeMenu()" style="background:none;border:none;color:rgba(255,255,255,0.4);font-size:1.8rem;cursor:none;transition:color .2s;line-height:1;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">✕</button>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:0.2rem;padding-left:2.5rem;">
+      <a href="#" class="menu-link" onclick="closeMenu()">HOME</a>
+      <a href="#about" class="menu-link" onclick="closeMenu()">ABOUT</a>
+      <a href="#trainings" class="menu-link" onclick="closeMenu()">TRAININGS</a>
+      <a href="#events" class="menu-link" onclick="closeMenu()">EVENTS</a>
+      <a href="#contact" class="menu-link" onclick="closeMenu()">CONTACT</a>
+    </nav>
+    <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08);padding-left:2.5rem;">
+      <div style="font-size:0.72rem;letter-spacing:0.2em;color:rgba(255,255,255,0.3);margin-bottom:1rem;font-weight:600;">CONNECT WITH US</div>
+      <div style="display:flex;gap:1rem;">
+        <a href="#" style="color:rgba(255,255,255,0.4);font-size:1.2rem;transition:color .2s;cursor:none;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" style="color:rgba(255,255,255,0.4);font-size:1.2rem;transition:color .2s;cursor:none;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" style="color:rgba(255,255,255,0.4);font-size:1.2rem;transition:color .2s;cursor:none;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" style="color:rgba(255,255,255,0.4);font-size:1.2rem;transition:color .2s;cursor:none;" onmouseover="this.style.color='var(--orange)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO MODAL -->
+<div id="videoModal" style="display:none;position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,0.92);backdrop-filter:blur(12px);align-items:center;justify-content:center;" onclick="closeVideoModal()">
+  <div style="max-width:900px;width:90%;position:relative;" onclick="event.stopPropagation()">
+    <button onclick="closeVideoModal()" style="position:absolute;top:-3rem;right:0;background:none;border:none;color:#fff;font-size:2rem;cursor:none;opacity:0.6;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">✕</button>
+    <div style="aspect-ratio:16/9;border-radius:16px;overflow:hidden;">
+      <iframe id="videoFrame" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===== CURSOR ===== */
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cur.style.left = mx + 'px';
+  cur.style.top = my + 'px';
+});
+
+function animRing() {
+  rx += (mx - rx) * 0.18;
+  ry += (my - ry) * 0.18;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+
+document.querySelectorAll('a,button,[onclick],.cta-btn,.outline-btn,.event-row,.cert-card').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cur.style.width = '18px'; cur.style.height = '18px';
+    ring.style.width = '52px'; ring.style.height = '52px';
+    ring.style.borderColor = 'rgba(255,77,0,0.8)';
+  });
+  el.addEventListener('mouseleave', () => {
+    cur.style.width = '10px'; cur.style.height = '10px';
+    ring.style.width = '36px'; ring.style.height = '36px';
+    ring.style.borderColor = 'rgba(255,77,0,0.5)';
+  });
+});
+
+/* ===== MENU ===== */
+function openMenu() {
+  document.getElementById('sideMenu').classList.add('open');
+  document.getElementById('menuOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  document.getElementById('sideMenu').classList.remove('open');
+  document.getElementById('menuOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ===== SLIDERS ===== */
+const sliderState = {};
+
+function buildSlider(id, images, height) {
+  const track = document.getElementById('sliderTrack-' + id);
+  if (!track) return;
+  track.innerHTML = images.map(src => `<img src="${src}" style="width:100%;height:${height}px;flex-shrink:0;" alt="">`).join('');
+  let idx = 0;
+  const interval = setInterval(() => {
+    idx = (idx + 1) % images.length;
+    track.style.transform = `translateX(-${idx * 100}%)`;
+  }, 3000);
+  sliderState[id] = { interval, track, idx, images, height };
+}
+
+function pauseSlider(id) {
+  if (sliderState[id]) { clearInterval(sliderState[id].interval); sliderState[id].interval = null; }
+}
+function resumeSlider(id) {
+  const s = sliderState[id];
+  if (!s || s.interval) return;
+  s.interval = setInterval(() => {
+    s.idx = (s.idx + 1) % s.images.length;
+    s.track.style.transform = `translateX(-${s.idx * 100}%)`;
+  }, 3000);
+}
+
+/* ===== HERO SLIDER ===== */
+const heroTrack = document.getElementById('heroTrack');
+const heroImgs = [
+  'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80',
+  'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80',
+  'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&q=80'
+];
+heroTrack.innerHTML = heroImgs.map(s => `<img src="${s}" style="width:100%;height:170px;flex-shrink:0;object-fit:cover;" alt="">`).join('');
+let hi = 0;
+let heroInt = setInterval(() => {
+  hi = (hi + 1) % heroImgs.length;
+  heroTrack.style.transform = `translateX(-${hi * 100}%)`;
+}, 3200);
+
+function pauseHero() { clearInterval(heroInt); heroInt = null; }
+function resumeHero() {
+  if (heroInt) return;
+  heroInt = setInterval(() => {
+    hi = (hi + 1) % heroImgs.length;
+    heroTrack.style.transform = `translateX(-${hi * 100}%)`;
+  }, 3200);
+}
+
+/* ===== TRAINING SLIDERS ===== */
+buildSlider('s1', [
+  'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80',
+  'https://images.unsplash.com/photo-1552581234-26160f608093?w=800&q=80',
+  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80'
+], 480);
+buildSlider('s2', [
+  'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80',
+  'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
+  'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80'
+], 480);
+buildSlider('s3', [
+  'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80',
+  'https://images.unsplash.com/photo-1530099486328-e021101a494a?w=800&q=80',
+  'https://images.unsplash.com/photo-1559223607-b4d0555ae227?w=800&q=80'
+], 480);
+
+/* ===== CLIENT TICKER ===== */
+const clients = ['Google','Microsoft','Unilever','Grameenphone','bKash','Robi','Square','ACI','Bashundhara','BRAC','Standard Chartered','Walton'];
+const ticker = document.getElementById('clientTicker');
+const doubled = [...clients, ...clients];
+ticker.innerHTML = doubled.map((c,i) => `<span class="ticker-item">${c}<span class="ticker-dot"></span></span>`).join('');
+
+/* ===== SCROLL FADE-UP ===== */
+const fadeEls = document.querySelectorAll('.fade-up');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+fadeEls.forEach(el => obs.observe(el));
+
+/* ===== UTILS ===== */
+function openGoogleForm() { window.open('https://forms.google.com', '_blank'); }
+function submitForm() { alert('Thank you! We\'ll be in touch within 24 hours.'); }
+function openVideoModal() {
+  const modal = document.getElementById('videoModal');
+  document.getElementById('videoFrame').src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
+  modal.style.display = 'flex';
+}
+function closeVideoModal() {
+  document.getElementById('videoModal').style.display = 'none';
+  document.getElementById('videoFrame').src = '';
+}
+</script>
+</body>
+</html>
