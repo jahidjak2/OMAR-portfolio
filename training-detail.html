@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>High-Performance Leadership | Elite Edge Training</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--or:#FF4D00;--or2:#FF6A1A;--bg:#080808;--bg2:#0e0e0e;--bg3:#141414;--wh:#ffffff;--wh2:rgba(255,255,255,0.65);--wh3:rgba(255,255,255,0.35);--bd:rgba(255,255,255,0.08);--bdor:rgba(255,77,0,0.3);}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--wh);overflow-x:hidden;cursor:none;}
+a{text-decoration:none;color:inherit;}
+
+/* CURSOR */
+#cur{position:fixed;width:10px;height:10px;background:var(--or);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;}
+#cur-ring{position:fixed;width:38px;height:38px;border:1.5px solid rgba(255,77,0,0.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s,border-color .2s;}
+
+/* NOISE */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.025;pointer-events:none;z-index:9990;}
+
+/* TYPOGRAPHY */
+.df{font-family:'Barlow Condensed',sans-serif;}
+
+/* SIDE MENU */
+#overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);z-index:1999;opacity:0;pointer-events:none;transition:opacity .4s;}
+#overlay.on{opacity:1;pointer-events:all;}
+#sidemenu{position:fixed;top:0;right:0;bottom:0;width:min(400px,85vw);background:#0c0c0c;border-left:1px solid var(--bdor);z-index:2000;transform:translateX(100%);transition:transform .5s cubic-bezier(.32,.72,0,1);display:flex;flex-direction:column;justify-content:center;padding:3rem;}
+#sidemenu.on{transform:translateX(0);}
+.sm-link{font-family:'Barlow Condensed',sans-serif;font-size:3.2rem;font-weight:900;color:rgba(255,255,255,0.15);display:block;line-height:1.15;transition:color .25s,padding-left .25s;cursor:none;padding-left:0;}
+.sm-link:hover{color:#fff;padding-left:8px;}
+.sm-div{width:40px;height:2px;background:var(--or);margin:2rem 0;border-radius:2px;}
+
+/* TOPBAR */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1.6rem 3rem;background:linear-gradient(to bottom,rgba(8,8,8,.95),transparent);}
+.logo{display:flex;align-items:center;gap:12px;cursor:none;}
+.logo-box{width:40px;height:40px;background:var(--or);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.1rem;flex-shrink:0;}
+.logo-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.15rem;letter-spacing:.08em;line-height:1;}
+.logo-sub{font-size:.55rem;letter-spacing:.28em;color:var(--wh3);font-weight:500;margin-top:2px;}
+.menubtn{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.2em;display:flex;align-items:center;gap:10px;background:none;border:none;color:var(--wh);cursor:none;transition:color .25s;}
+.menubtn:hover{color:var(--or);}
+.menubtn-circle{width:36px;height:36px;border:1.5px solid rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .25s,background .25s;}
+.menubtn:hover .menubtn-circle{border-color:var(--or);background:rgba(255,77,0,0.12);}
+
+/* HERO SLIDER */
+.hero-slider{position:relative;width:100%;height:90vh;overflow:hidden;}
+.hs-track{display:flex;height:100%;transition:transform 1s cubic-bezier(.4,0,.2,1);}
+.hs-track img{flex-shrink:0;width:100%;height:100%;object-fit:cover;}
+.hs-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,1) 0%,rgba(8,8,8,.6) 50%,rgba(8,8,8,.4) 100%);}
+.hs-dots{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:.6rem;z-index:10;}
+.hs-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);transition:background .3s,width .3s;border:none;cursor:none;}
+.hs-dot.active{background:var(--or);width:24px;border-radius:4px;}
+
+/* SECTION UTIL */
+.sec-pad{padding:6rem 3rem;}
+.inner{max-width:1260px;margin:0 auto;}
+.sec-label{font-size:.68rem;font-weight:700;letter-spacing:.3em;color:var(--or);display:block;margin-bottom:.6rem;}
+.orange-bar{width:44px;height:3px;background:var(--or);border-radius:2px;margin-bottom:1.6rem;}
+.sec-h{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2.2rem,4.5vw,4rem);line-height:1.05;}
+
+/* INTRO */
+.intro-grid{display:grid;grid-template-columns:3fr 2fr;gap:4rem;align-items:start;}
+.prog-meta-bar{display:flex;gap:0;border:1px solid var(--bd);border-radius:12px;overflow:hidden;margin-top:2.5rem;}
+.pm-cell{flex:1;padding:1.4rem 1.2rem;border-right:1px solid var(--bd);text-align:center;}
+.pm-cell:last-child{border-right:none;}
+.pm-n{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:900;color:var(--or);}
+.pm-l{font-size:.65rem;letter-spacing:.14em;color:var(--wh3);margin-top:3px;font-weight:500;}
+.info-cards{display:flex;flex-direction:column;gap:1rem;}
+.info-card{background:var(--bg3);border:1px solid var(--bd);border-radius:12px;padding:1.4rem 1.6rem;display:flex;gap:1rem;align-items:flex-start;}
+.ic-icon{width:40px;height:40px;background:rgba(255,77,0,.1);border:1px solid rgba(255,77,0,.25);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--or);flex-shrink:0;font-size:.9rem;}
+.ic-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.04em;margin-bottom:3px;}
+.ic-val{font-size:.85rem;color:var(--wh2);}
+
+/* STRATEGIES */
+.strat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.strat-card{background:var(--bg3);border:1px solid var(--bd);border-radius:14px;padding:2rem 1.6rem;transition:border-color .3s;cursor:none;}
+.strat-card:hover{border-color:var(--bdor);}
+.strat-num{font-family:'Barlow Condensed',sans-serif;font-size:3rem;font-weight:900;color:rgba(255,77,0,.2);line-height:1;margin-bottom:.6rem;}
+.strat-title{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:900;margin-bottom:.6rem;}
+.strat-desc{font-size:.87rem;color:var(--wh2);line-height:1.7;}
+
+/* MODULES */
+.modules-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+.mod-item{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem 1.4rem;background:var(--bg3);border:1px solid var(--bd);border-radius:10px;transition:border-color .3s;cursor:none;}
+.mod-item:hover{border-color:rgba(255,77,0,.35);}
+.mod-check{width:22px;height:22px;background:rgba(255,77,0,.12);border:1px solid rgba(255,77,0,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.mod-check i{font-size:.6rem;color:var(--or);}
+.mod-text{font-size:.9rem;color:var(--wh2);line-height:1.55;}
+.mod-text strong{color:var(--wh);font-weight:600;}
+
+/* MEETING REQUEST */
+.meeting-banner{background:linear-gradient(135deg,rgba(255,77,0,.15),rgba(255,77,0,.05));border:1px solid rgba(255,77,0,.25);border-radius:18px;padding:3.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.mb-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:900;margin-bottom:.5rem;}
+.mb-sub{font-size:.95rem;color:var(--wh2);}
+
+/* FORMS */
+.btn-or{background:var(--or);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.08em;padding:.9rem 2.2rem;border-radius:8px;border:none;cursor:none;display:inline-flex;align-items:center;gap:10px;transition:transform .2s,box-shadow .2s;white-space:nowrap;}
+.btn-or:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(255,77,0,.35);}
+.btn-outline{background:transparent;color:var(--or);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.08em;padding:.9rem 2.2rem;border-radius:8px;border:1.5px solid var(--or);cursor:none;display:inline-flex;align-items:center;gap:10px;transition:background .2s,color .2s,transform .2s;white-space:nowrap;}
+.btn-outline:hover{background:var(--or);color:#fff;transform:translateY(-3px);}
+
+.form-wrap{background:var(--bg3);border:1px solid var(--bd);border-radius:18px;padding:2.5rem;}
+.form-title{font-family:'Barlow Condensed',sans-serif;font-size:1.7rem;font-weight:900;margin-bottom:.4rem;}
+.form-sub{font-size:.88rem;color:var(--wh3);margin-bottom:1.8rem;}
+.fi{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:1rem 1.3rem;color:var(--wh);font-family:'DM Sans',sans-serif;font-size:.93rem;width:100%;outline:none;transition:border-color .25s,background .25s;cursor:none;}
+.fi::placeholder{color:var(--wh3);}
+.fi:focus{border-color:var(--or);background:rgba(255,77,0,.05);}
+.fi-row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.fi-full{margin-bottom:1rem;}
+.fi-label{font-size:.72rem;font-weight:600;letter-spacing:.12em;color:var(--wh3);margin-bottom:.4rem;display:block;}
+
+/* CALENDAR PICKER */
+.cal-input{position:relative;}
+.cal-input input[type="date"]{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:1rem 1.3rem;color:var(--wh);font-family:'DM Sans',sans-serif;font-size:.93rem;width:100%;outline:none;transition:border-color .25s;cursor:none;-webkit-appearance:none;}
+.cal-input input[type="date"]:focus{border-color:var(--or);}
+.cal-input input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.5;cursor:pointer;}
+
+/* TRAINER SECTION */
+.trainer-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.trainer-img{border-radius:18px;overflow:hidden;aspect-ratio:4/5;position:relative;}
+.trainer-img img{width:100%;height:100%;object-fit:cover;}
+.trainer-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.7),transparent 50%);}
+.trainer-badge{position:absolute;bottom:1.5rem;left:1.5rem;z-index:2;background:var(--or);border-radius:8px;padding:.5rem 1rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.08em;}
+.tag-logo{width:64px;height:64px;background:var(--or);border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.4rem;margin-bottom:1.5rem;}
+
+/* ENROLL FORM */
+.enroll-form{background:var(--bg3);border:1px solid var(--bd);border-radius:18px;padding:2.5rem;}
+.participants-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin-bottom:1rem;}
+.part-opt{border:1.5px solid rgba(255,255,255,.12);border-radius:8px;padding:.8rem .6rem;text-align:center;font-size:.82rem;color:var(--wh2);cursor:none;transition:border-color .25s,color .25s,background .25s;}
+.part-opt:hover,.part-opt.sel{border-color:var(--or);color:var(--or);background:rgba(255,77,0,.08);}
+
+/* CONTACT SECTION */
+.contact-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.contact-detail-img{border-radius:18px;overflow:hidden;aspect-ratio:4/3;}
+.contact-detail-img img{width:100%;height:100%;object-fit:cover;opacity:.7;}
+.cd-item{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;}
+.cdi-icon{width:44px;height:44px;background:rgba(255,77,0,.1);border:1px solid rgba(255,77,0,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--or);flex-shrink:0;}
+
+/* FOOTER */
+footer{background:#050505;border-top:1px solid var(--bd);}
+.map-wrap{max-width:92%;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid var(--bd);}
+.footer-inner{max-width:1260px;margin:0 auto;padding:3rem;}
+.footer-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:3rem;align-items:center;padding:2rem 0;border-bottom:1px solid var(--bd);margin-bottom:2rem;}
+.footer-addr{font-size:.85rem;color:var(--wh3);line-height:1.8;}
+.footer-nav{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;}
+.footer-nav a{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.18em;color:rgba(255,255,255,.35);transition:color .2s;cursor:none;}
+.footer-nav a:hover{color:var(--or);}
+.footer-socials{display:flex;gap:.8rem;justify-content:flex-end;}
+.soc{width:38px;height:38px;border:1px solid rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--wh3);font-size:.95rem;transition:all .2s;cursor:none;}
+.soc:hover{border-color:var(--or);color:var(--or);}
+.footer-copy{font-size:.73rem;color:rgba(255,255,255,.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+
+/* FADE UP */
+.fu{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+.fu.vis{opacity:1;transform:translateY(0);}
+
+/* MODAL CONTACT */
+#cmodal{display:none;position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.92);backdrop-filter:blur(12px);align-items:flex-start;justify-content:center;overflow-y:auto;padding:4rem 1.5rem;}
+#cmodal.on{display:flex;}
+.cmodal-inner{background:var(--bg2);border:1px solid var(--bd);border-radius:20px;width:100%;max-width:640px;padding:2.5rem;position:relative;}
+.cmodal-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--wh3);font-size:1.6rem;cursor:none;transition:color .2s;line-height:1;}
+.cmodal-close:hover{color:#fff;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .intro-grid,.trainer-grid,.contact-detail-grid{grid-template-columns:1fr;}
+  .strat-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr;gap:1.5rem;}
+  .footer-socials{justify-content:flex-start;}
+}
+@media(max-width:768px){
+  .sec-pad{padding:4.5rem 1.5rem;}
+  .topbar{padding:1.4rem 1.5rem;}
+  .modules-grid{grid-template-columns:1fr;}
+  .participants-grid{grid-template-columns:repeat(2,1fr);}
+  .strat-grid{grid-template-columns:1fr;}
+  .prog-meta-bar{flex-wrap:wrap;}
+  .pm-cell{min-width:50%;}
+  .hero-slider{height:70vh;}
+}
+@media(max-width:560px){
+  .fi-row2{grid-template-columns:1fr;}
+  .meeting-banner{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- MENU OVERLAY -->
+<div id="overlay" onclick="closeMenu()"></div>
+<div id="sidemenu">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3rem;">
+    <div class="logo">
+      <div class="logo-box">EE</div>
+      <div style="display:flex;flex-direction:column;"><span class="logo-name">ELITE EDGE</span><span class="logo-sub">TRAINING</span></div>
+    </div>
+    <button onclick="closeMenu()" style="background:none;border:none;color:var(--wh3);font-size:1.8rem;cursor:none;transition:color .2s;line-height:1;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='var(--wh3)'">✕</button>
+  </div>
+  <div class="sm-div"></div>
+  <nav style="display:flex;flex-direction:column;gap:.1rem;">
+    <a href="index.html#home" class="sm-link" onclick="closeMenu()">HOME</a>
+    <a href="index.html#about" class="sm-link" onclick="closeMenu()">ABOUT</a>
+    <a href="index.html#programs" class="sm-link" onclick="closeMenu()">TRAINING</a>
+    <a href="index.html#events" class="sm-link" onclick="closeMenu()">EVENTS</a>
+    <a href="index.html#contact" class="sm-link" onclick="closeMenu()">CONTACT</a>
+  </nav>
+  <div class="sm-div"></div>
+  <div style="display:flex;gap:1rem;">
+    <a href="#" class="soc"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a href="#" class="soc"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#" class="soc"><i class="fa-brands fa-youtube"></i></a>
+    <a href="#" class="soc"><i class="fa-brands fa-instagram"></i></a>
+  </div>
+</div>
+
+<!-- CONTACT MODAL -->
+<div id="cmodal" onclick="closeCModal()">
+  <div class="cmodal-inner" onclick="event.stopPropagation()">
+    <button class="cmodal-close" onclick="closeCModal()">✕</button>
+    <h2 class="df" style="font-size:2rem;font-weight:900;margin-bottom:.3rem;">REQUEST A MEETING</h2>
+    <p style="font-size:.85rem;color:var(--wh3);margin-bottom:2rem;">Our training advisor will contact you within 24 hours.</p>
+
+    <div class="fi-row2"><input class="fi" type="text" placeholder="Full Name"><input class="fi" type="email" placeholder="Email Address"></div>
+    <div class="fi-full"><input class="fi" type="tel" placeholder="Contact Number"></div>
+    <div class="fi-full"><input class="fi" type="text" placeholder="Company Name"></div>
+    <div class="fi-full">
+      <label class="fi-label">Message / Enquiry</label>
+      <textarea class="fi" rows="4" placeholder="Tell us about your training needs..." style="resize:none;"></textarea>
+    </div>
+    <button class="btn-or" style="width:100%;justify-content:center;" onclick="submitForm('meeting')">SEND REQUEST <i class="fa-solid fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="index.html" class="logo">
+    <div class="logo-box">EE</div>
+    <div style="display:flex;flex-direction:column;"><span class="logo-name">ELITE EDGE</span><span class="logo-sub">TRAINING</span></div>
+  </a>
+  <div style="display:flex;align-items:center;gap:1.5rem;">
+    <a href="index.html#programs" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.18em;color:var(--wh3);display:flex;align-items:center;gap:.5rem;cursor:none;transition:color .2s;" onmouseenter="this.style.color='var(--or)'" onmouseleave="this.style.color='var(--wh3)'">
+      <i class="fa-solid fa-arrow-left" style="font-size:.75rem;"></i> ALL PROGRAMS
+    </a>
+    <button class="menubtn" onclick="openMenu()">MENU <div class="menubtn-circle">→</div></button>
+  </div>
+</div>
+
+<!-- ===== HERO SLIDER ===== -->
+<div class="hero-slider" id="heroSlider">
+  <div class="hs-track" id="hsTrack">
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=80" alt="Leadership Training">
+    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=1600&q=80" alt="Executive Workshop">
+    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&q=80" alt="Team Leadership">
+    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80" alt="Leadership Session">
+  </div>
+  <div class="hs-overlay"></div>
+
+  <!-- Hero text overlay -->
+  <div style="position:absolute;bottom:5rem;left:3rem;right:3rem;z-index:10;">
+    <span style="font-size:.65rem;font-weight:700;letter-spacing:.3em;color:var(--or);display:block;margin-bottom:.8rem;">HIGH-PERFORMANCE LEADERSHIP</span>
+    <h1 class="df" id="detailTitle" style="font-size:clamp(3rem,7vw,6.5rem);font-weight:900;line-height:.95;max-width:800px;color:#fff;">HIGH-PERFORMANCE<br>LEADERSHIP</h1>
+    <p id="detailTagline" style="font-size:1rem;color:var(--wh2);margin-top:1.2rem;max-width:520px;">Master executive presence and strategic decision-making for transformational impact.</p>
+  </div>
+
+  <!-- Dots -->
+  <div class="hs-dots" id="hsDots"></div>
+</div>
+
+<!-- ===== INTRO / OVERVIEW ===== -->
+<section class="sec-pad" style="background:var(--bg2);" id="overview">
+  <div class="inner">
+    <div class="intro-grid">
+      <div class="fu">
+        <span class="sec-label">PROGRAM OVERVIEW</span>
+        <div style="width:44px;height:3px;background:var(--or);border-radius:2px;margin-bottom:1.6rem;"></div>
+        <h2 class="sec-h" style="margin-bottom:1.5rem;" id="overviewTitle">TRANSFORM HOW<br>YOU LEAD</h2>
+        <p id="overviewDesc" style="font-size:1.05rem;color:var(--wh2);line-height:1.85;">
+          Elite Edge's High-Performance Leadership program is built for professionals who are ready to break through leadership plateaus and achieve transformational results. Over three intensive days, participants undergo experiential exercises, live case studies, and behavioral coaching that permanently shifts how they think, decide, and lead.
+        </p>
+        <p style="font-size:1.05rem;color:var(--wh2);line-height:1.85;margin-top:1.2rem;">
+          This is not a lecture-based program. It is a laboratory for leadership — where real challenges are addressed, real breakthroughs happen, and lasting change is created.
+        </p>
+        <div class="prog-meta-bar">
+          <div class="pm-cell"><div class="pm-n" id="m-dur">3</div><div class="pm-l">DAYS</div></div>
+          <div class="pm-cell"><div class="pm-n" id="m-hrs">24</div><div class="pm-l">HOURS</div></div>
+          <div class="pm-cell"><div class="pm-n" id="m-seats">20</div><div class="pm-l">MAX SEATS</div></div>
+          <div class="pm-cell"><div class="pm-n">ICF</div><div class="pm-l">CERTIFIED</div></div>
+        </div>
+      </div>
+      <div class="info-cards fu" style="transition-delay:.12s;">
+        <div class="info-card"><div class="ic-icon"><i class="fa-solid fa-users"></i></div><div><div class="ic-title">WHO IS THIS FOR?</div><div class="ic-val">Mid-level managers, senior executives, founders, and team leaders seeking to elevate their leadership performance.</div></div></div>
+        <div class="info-card"><div class="ic-icon"><i class="fa-solid fa-globe"></i></div><div><div class="ic-title">DELIVERY MODE</div><div class="ic-val">In-person at our Dhaka studio. Corporate on-site delivery also available.</div></div></div>
+        <div class="info-card"><div class="ic-icon"><i class="fa-solid fa-language"></i></div><div><div class="ic-title">LANGUAGE</div><div class="ic-val">Conducted in English with Bangla support materials available.</div></div></div>
+        <div class="info-card"><div class="ic-icon"><i class="fa-solid fa-certificate"></i></div><div><div class="ic-title">CERTIFICATION</div><div class="ic-val">ICF-accredited certificate of completion provided upon successfully finishing the program.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRAINING STRATEGIES ===== -->
+<section class="sec-pad" style="background:var(--bg);">
+  <div class="inner">
+    <div class="fu" style="max-width:600px;margin-bottom:3.5rem;">
+      <span class="sec-label">HOW WE TRAIN</span>
+      <div style="width:44px;height:3px;background:var(--or);border-radius:2px;margin-bottom:1.5rem;"></div>
+      <h2 class="sec-h">TRAINING<br>STRATEGIES</h2>
+    </div>
+    <div class="strat-grid">
+      <div class="strat-card fu">
+        <div class="strat-num">01</div>
+        <div class="strat-title">EXPERIENTIAL LEARNING</div>
+        <div class="strat-desc">Every concept is applied through live simulations, role-plays, and real-world scenarios so participants internalize — not just understand — leadership principles.</div>
+      </div>
+      <div class="strat-card fu" style="transition-delay:.08s;">
+        <div class="strat-num">02</div>
+        <div class="strat-title">BEHAVIORAL COACHING</div>
+        <div class="strat-desc">One-on-one and group coaching sessions help participants identify limiting beliefs and replace them with high-performance leadership behaviours and mindsets.</div>
+      </div>
+      <div class="strat-card fu" style="transition-delay:.16s;">
+        <div class="strat-num">03</div>
+        <div class="strat-title">CASE STUDY WORKSHOPS</div>
+        <div class="strat-desc">Bangladesh and global business case studies are dissected to extract leadership lessons applicable to each participant's unique organizational context.</div>
+      </div>
+      <div class="strat-card fu" style="transition-delay:.24s;">
+        <div class="strat-num">04</div>
+        <div class="strat-title">PEER ACCOUNTABILITY</div>
+        <div class="strat-desc">Cohort-based learning with peer accountability structures ensures every participant has a support network that continues beyond the program.</div>
+      </div>
+      <div class="strat-card fu" style="transition-delay:.32s;">
+        <div class="strat-num">05</div>
+        <div class="strat-title">ASSESSMENTS & FEEDBACK</div>
+        <div class="strat-desc">360-degree assessments and real-time facilitator feedback help each participant measure growth and understand their exact leadership gaps.</div>
+      </div>
+      <div class="strat-card fu" style="transition-delay:.4s;">
+        <div class="strat-num">06</div>
+        <div class="strat-title">POST-PROGRAM SUPPORT</div>
+        <div class="strat-desc">30-day post-program follow-up sessions, alumni access, and resource library ensure the learning sticks and results are sustained over time.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TOPICS & MODULES ===== -->
+<section class="sec-pad" style="background:var(--bg2);" id="modules">
+  <div class="inner">
+    <div class="fu" style="max-width:640px;margin-bottom:3.5rem;">
+      <span class="sec-label">CURRICULUM</span>
+      <div style="width:44px;height:3px;background:var(--or);border-radius:2px;margin-bottom:1.5rem;"></div>
+      <h2 class="sec-h">WHAT WE COVER</h2>
+      <p style="font-size:.97rem;color:var(--wh2);margin-top:1rem;line-height:1.8;">A comprehensive, structured curriculum of <strong>12 core modules</strong> spanning the full spectrum of high-performance leadership.</p>
+    </div>
+    <div class="modules-grid fu">
+      <div class="mod-item"><div class="mod-check"><i class="fa-solid fa-check"></i></div><div class="mod-text"><strong>Module 1:</strong> The Leadership Mindset — Growth, Identity & Purpose</div></div>
+      <div class="mod-item"><div class="mod-check"><i class="fa-solid fa-check"></i></div><div class="mod-text"><strong>Module 2:</strong> Strategic Thinking & Decision-Making Under Pressure</div></div>
+      <div class="mod-item"><div class="mod-check"><i class="fa-solid fa-check"></i></div><div class="mod-text"><strong>Module 3:</strong> Executive Presence — Body Language, Voice & Authority</div></div>
+      <div class="mod-item"><div class="mod-check"><i class="fa-solid fa-check"></i></div><div class="mod-text"><strong>Module 4:</strong> Emotional Intelligence & Self-Regulation in Leadership</div></div>
+      <div class="mod-item"><div class="mod-check"><i class="fa-solid fa-check"></i></div><div class="mod-text"><strong>Module 5:</strong> Building & Leading High-Performance Teams</div></div>
+      <div class="mod-item"><div class="mod-check"><i class="fa-solid fa-check"></i></div><div class="mod-text"><strong>Module 6:</strong> Difficult Conversations — Conflict, Feedback & Accountability</div></div>
+      <div class="mod-item"><div class="mod-check"><i class="fa-solid fa-check"></i></div><div class="mod-text"><strong>Module 7:</strong> Organizational Culture & Change Leadership</div></div>
+      <div class="mod-item"><div class="mod-check"><i class="fa-solid fa-check"></i></div><div class="mod-text"><strong>Module 8:</strong> Coaching & Mentoring Skills for Leaders</div></div>
+      <div class="mod-item"><div class="mod-check"><i class="fa-solid fa-check"></i></div><div class="mod-text"><strong>Module 9:</strong> Stakeholder Management & Influencing Without Authority</div></div>
+      <div class="mod-item"><div class="mod-check"><i class="fa-solid fa-check"></i></div><div class="mod-text"><strong>Module 10:</strong> Innovation Leadership & Creative Problem-Solving</div></div>
+      <div class="mod-item"><div class="mod-check"><i class="fa-solid fa-check"></i></div><div class="mod-text"><strong>Module 11:</strong> Personal Effectiveness — Energy, Time & Priority Management</div></div>
+      <div class="mod-item"><div class="mod-check"><i class="fa-solid fa-check"></i></div><div class="mod-text"><strong>Module 12:</strong> 90-Day Personal Leadership Action Plan & Commitment</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MEETING REQUEST BANNER ===== -->
+<section style="padding:4rem 3rem;background:var(--bg);">
+  <div class="inner fu">
+    <div class="meeting-banner">
+      <div>
+        <div class="mb-title">WANT TO DISCUSS<br>YOUR TRAINING NEEDS?</div>
+        <div class="mb-sub">Book a free 30-minute discovery call with our training advisor.</div>
+      </div>
+      <button class="btn-or" onclick="openCModal()" style="font-size:1.05rem;padding:1.1rem 2.8rem;">REQUEST A MEETING <i class="fa-solid fa-calendar-check"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ENROLLMENT FORM ===== -->
+<section class="sec-pad" style="background:var(--bg2);" id="enroll">
+  <div class="inner">
+    <div class="fu" style="max-width:600px;margin-bottom:3rem;">
+      <span class="sec-label">BOOK YOUR SEAT</span>
+      <div style="width:44px;height:3px;background:var(--or);border-radius:2px;margin-bottom:1.5rem;"></div>
+      <h2 class="sec-h">ENROLL NOW</h2>
+      <p style="font-size:.95rem;color:var(--wh2);margin-top:.8rem;line-height:1.75;">Fill in the form below to reserve your seat. We'll confirm availability and send details within 24 hours.</p>
+    </div>
+    <div class="enroll-form fu" style="max-width:760px;">
+      <div class="fi-row2">
+        <input class="fi" type="text" placeholder="Full Name">
+        <input class="fi" type="email" placeholder="Email Address">
+      </div>
+      <div class="fi-row2">
+        <input class="fi" type="tel" placeholder="Phone Number">
+        <input class="fi" type="text" placeholder="Company Name">
+      </div>
+      <div class="fi-full">
+        <label class="fi-label">SELECT MODULES (you can choose multiple)</label>
+        <select class="fi" multiple style="height:auto;min-height:130px;padding:.8rem;line-height:2;" size="6">
+          <option>Module 1 — Leadership Mindset & Purpose</option>
+          <option>Module 2 — Strategic Thinking & Decisions</option>
+          <option>Module 3 — Executive Presence</option>
+          <option>Module 4 — Emotional Intelligence</option>
+          <option>Module 5 — High-Performance Teams</option>
+          <option>Module 6 — Difficult Conversations</option>
+          <option>Module 7 — Culture & Change Leadership</option>
+          <option>Module 8 — Coaching & Mentoring Skills</option>
+          <option>Module 9 — Stakeholder Management</option>
+          <option>Module 10 — Innovation Leadership</option>
+          <option>Module 11 — Personal Effectiveness</option>
+          <option>Module 12 — Leadership Action Plan</option>
+          <option>All Modules (Full Program)</option>
+        </select>
+        <div style="font-size:.72rem;color:var(--wh3);margin-top:.4rem;">Hold Ctrl / Cmd to select multiple</div>
+      </div>
+      <div class="fi-full">
+        <label class="fi-label">PREFERRED DATE</label>
+        <div class="cal-input"><input type="date" class="fi"></div>
+      </div>
+      <button class="btn-or" onclick="submitForm('enroll')" style="width:100%;justify-content:center;font-size:1.05rem;padding:1.1rem;">SUBMIT ENROLLMENT <i class="fa-solid fa-arrow-right-long"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRAINER SECTION ===== -->
+<section class="sec-pad" style="background:var(--bg);">
+  <div class="inner">
+    <div class="trainer-grid">
+      <div class="trainer-img fu">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80" alt="Lead Trainer">
+        <div class="trainer-badge">LEAD FACILITATOR</div>
+      </div>
+      <div class="fu" style="transition-delay:.12s;">
+        <div class="tag-logo">EE</div>
+        <span class="sec-label">MEET YOUR TRAINER</span>
+        <div style="width:44px;height:3px;background:var(--or);border-radius:2px;margin-bottom:1.5rem;"></div>
+        <h2 class="sec-h" style="margin-bottom:1.2rem;">RAHMAN CHOWDHURY</h2>
+        <p style="font-size:.85rem;font-weight:700;letter-spacing:.1em;color:var(--or);margin-bottom:1.2rem;">ICF MASTER CERTIFIED COACH · 15 YEARS EXPERIENCE</p>
+        <p style="font-size:1rem;color:var(--wh2);line-height:1.85;margin-bottom:1.5rem;">
+          Rahman has trained over 2,000 leaders across Bangladesh, Southeast Asia, and the Middle East. A former corporate executive turned master coach, he brings deep industry experience combined with world-class facilitation that creates measurable leadership breakthroughs.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:.6rem;">
+          <span style="border:1px solid var(--bd);padding:.35rem 1rem;border-radius:100px;font-size:.78rem;color:var(--wh3);">ICF Master Coach</span>
+          <span style="border:1px solid var(--bd);padding:.35rem 1rem;border-radius:100px;font-size:.78rem;color:var(--wh3);">PMP Certified</span>
+          <span style="border:1px solid var(--bd);padding:.35rem 1rem;border-radius:100px;font-size:.78rem;color:var(--wh3);">NLP Practitioner</span>
+          <span style="border:1px solid var(--bd);padding:.35rem 1rem;border-radius:100px;font-size:.78rem;color:var(--wh3);">Six Sigma Black Belt</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CORPORATE INQUIRY FORM ===== -->
+<section class="sec-pad" style="background:var(--bg2);" id="corporate">
+  <div class="inner">
+    <div class="fu" style="max-width:600px;margin-bottom:3rem;">
+      <span class="sec-label">CORPORATE & GROUPS</span>
+      <div style="width:44px;height:3px;background:var(--or);border-radius:2px;margin-bottom:1.5rem;"></div>
+      <h2 class="sec-h">GROUP INQUIRY</h2>
+      <p style="font-size:.95rem;color:var(--wh2);margin-top:.8rem;line-height:1.75;">Interested in private corporate delivery or group bookings? Fill this form and our team will prepare a custom proposal.</p>
+    </div>
+    <div class="enroll-form fu" style="max-width:760px;">
+      <div class="fi-row2">
+        <input class="fi" type="text" placeholder="Full Name">
+        <input class="fi" type="email" placeholder="Email Address">
+      </div>
+      <div class="fi-row2">
+        <input class="fi" type="tel" placeholder="Phone Number">
+        <input class="fi" type="text" placeholder="Designation / Role">
+      </div>
+      <div class="fi-full">
+        <label class="fi-label">ORGANIZATION TYPE</label>
+        <select class="fi">
+          <option value="" disabled selected>Select organization type</option>
+          <option>Corporation / Company</option>
+          <option>Educational Institution</option>
+          <option>NGO / Non-Profit</option>
+          <option>Government Organization</option>
+          <option>Startup</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fi-full"><input class="fi" type="text" placeholder="Organization / Educational Institute Name"></div>
+      <div class="fi-full">
+        <label class="fi-label">NUMBER OF PARTICIPANTS</label>
+        <div class="participants-grid" id="partGrid">
+          <div class="part-opt" onclick="selPart(this)">Just Me</div>
+          <div class="part-opt" onclick="selPart(this)">2–5</div>
+          <div class="part-opt" onclick="selPart(this)">6–10</div>
+          <div class="part-opt sel" onclick="selPart(this)">10+</div>
+        </div>
+        <input class="fi" type="text" placeholder="Custom number (optional)" style="margin-top:.5rem;">
+      </div>
+      <button class="btn-or" onclick="submitForm('group')" style="width:100%;justify-content:center;font-size:1.05rem;padding:1.1rem;">SEND GROUP INQUIRY <i class="fa-solid fa-arrow-right-long"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT DETAILS SECTION ===== -->
+<section class="sec-pad" style="background:var(--bg);" id="reach">
+  <div class="inner">
+    <div class="contact-detail-grid">
+      <div class="fu">
+        <span class="sec-label">REACH US DIRECTLY</span>
+        <div style="width:44px;height:3px;background:var(--or);border-radius:2px;margin-bottom:1.5rem;"></div>
+        <h2 class="sec-h" style="margin-bottom:2rem;">LET'S TALK</h2>
+        <div class="cd-item"><div class="cdi-icon"><i class="fa-solid fa-location-dot"></i></div><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;margin-bottom:2px;">OUR LOCATION</div><div style="font-size:.9rem;color:var(--wh2);">Gulshan-2, Dhaka-1212, Bangladesh</div></div></div>
+        <div class="cd-item"><div class="cdi-icon"><i class="fa-solid fa-phone"></i></div><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;margin-bottom:2px;">PHONE</div><div style="font-size:.9rem;color:var(--wh2);">+880 1700 000 000</div></div></div>
+        <div class="cd-item"><div class="cdi-icon"><i class="fa-solid fa-envelope"></i></div><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;margin-bottom:2px;">EMAIL</div><div style="font-size:.9rem;color:var(--wh2);">info@eliteedge.com.bd</div></div></div>
+        <div class="cd-item"><div class="cdi-icon"><i class="fa-solid fa-clock"></i></div><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;margin-bottom:2px;">OFFICE HOURS</div><div style="font-size:.9rem;color:var(--wh2);">Sunday – Thursday, 9:00 AM – 6:00 PM</div></div></div>
+        <div style="margin-top:2rem;display:flex;gap:1rem;">
+          <a href="#" class="soc"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="soc"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="soc"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="soc"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="contact-detail-img fu" style="transition-delay:.12s;">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Elite Edge Office">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div style="padding:3rem 3rem 0;">
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116609!2d90.3493!3d23.7809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b0a8c53be3%3A0x10ee0f84e50f7e41!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sbd" width="100%" height="360" style="border:0;display:block;" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="margin-bottom:.8rem;">
+          <div class="logo-box" style="width:36px;height:36px;font-size:.95rem;">EE</div>
+          <div style="display:flex;flex-direction:column;"><span class="logo-name">ELITE EDGE TRAINING</span></div>
+        </div>
+        <div class="footer-addr">Gulshan-2, Dhaka-1212<br>Bangladesh</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">HOME</a>
+        <a href="index.html#about">ABOUT</a>
+        <a href="index.html#programs">TRAINING</a>
+        <a href="index.html#events">EVENTS</a>
+        <a href="index.html#contact">CONTACT</a>
+      </nav>
+      <div class="footer-socials">
+        <a href="#" class="soc"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" class="soc"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="soc"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" class="soc"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <span>© 2026 Elite Edge Training. All Rights Reserved.</span>
+      <span>Dhaka, Bangladesh</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* CURSOR */
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function anim(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);})();
+document.querySelectorAll('a,button,[onclick],.strat-card,.mod-item,.part-opt,.soc').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='16px';cur.style.height='16px';ring.style.width='54px';ring.style.height='54px';ring.style.borderColor='rgba(255,77,0,.75)';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='38px';ring.style.height='38px';ring.style.borderColor='rgba(255,77,0,.45)';});
+});
+
+/* MENU */
+function openMenu(){document.getElementById('sidemenu').classList.add('on');document.getElementById('overlay').classList.add('on');document.body.style.overflow='hidden';}
+function closeMenu(){document.getElementById('sidemenu').classList.remove('on');document.getElementById('overlay').classList.remove('on');document.body.style.overflow='';}
+
+/* CONTACT MODAL */
+function openCModal(){document.getElementById('cmodal').classList.add('on');document.body.style.overflow='hidden';}
+function closeCModal(){document.getElementById('cmodal').classList.remove('on');document.body.style.overflow='';}
+
+/* HERO SLIDER */
+const hsTrack=document.getElementById('hsTrack');
+const totalSlides=hsTrack.querySelectorAll('img').length;
+let hsIdx=0;
+const dotsWrap=document.getElementById('hsDots');
+for(let i=0;i<totalSlides;i++){const d=document.createElement('button');d.className='hs-dot'+(i===0?' active':'');d.onclick=()=>goSlide(i);dotsWrap.appendChild(d);}
+function goSlide(i){hsIdx=i;hsTrack.style.transform=`translateX(-${i*100}%)`;document.querySelectorAll('.hs-dot').forEach((d,j)=>d.classList.toggle('active',j===i));}
+const hsAuto=setInterval(()=>goSlide((hsIdx+1)%totalSlides),4000);
+
+/* DYNAMIC CONTENT BY URL PARAM */
+const params=new URLSearchParams(window.location.search);
+const prog=params.get('prog')||'leadership';
+const progData={
+  leadership:{
+    title:'HIGH-PERFORMANCE<br>LEADERSHIP',tagline:'Master executive presence and strategic decision-making for transformational impact.',
+    overviewTitle:'TRANSFORM HOW<br>YOU LEAD',desc:'Elite Edge\'s High-Performance Leadership program is built for professionals ready to break through leadership plateaus and achieve transformational results.',
+    dur:'3',hrs:'24',seats:'20',
+    images:['https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=80','https://images.unsplash.com/photo-1552581234-26160f608093?w=1600&q=80','https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&q=80','https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80'],
+    pageTitle:'High-Performance Leadership | Elite Edge Training'
+  },
+  sales:{
+    title:'SALES MASTERY<br>& NEGOTIATION',tagline:'Close bigger deals with confidence using proven psychological frameworks.',
+    overviewTitle:'CLOSE MORE,<br>WIN MORE',desc:'Grounded in behavioral economics, NLP, and real-world negotiation frameworks tested across high-ticket sales environments and Fortune 500 companies.',
+    dur:'2',hrs:'16',seats:'25',
+    images:['https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600&q=80','https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80','https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80'],
+    pageTitle:'Sales Mastery & Negotiation | Elite Edge Training'
+  },
+  speaking:{
+    title:'PUBLIC SPEAKING<br>& PRESENCE',tagline:'Command any room with authority, authenticity, and unforgettable impact.',
+    overviewTitle:'OWN EVERY<br>ROOM YOU ENTER',desc:'From boardrooms to keynote stages — develop your voice, body language, and storytelling with real performance coaching from world-class facilitators.',
+    dur:'1',hrs:'8',seats:'15',
+    images:['https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1600&q=80','https://images.unsplash.com/photo-1530099486328-e021101a494a?w=1600&q=80','https://images.unsplash.com/photo-1559223607-b4d0555ae227?w=1600&q=80'],
+    pageTitle:'Public Speaking & Presence | Elite Edge Training'
+  }
+};
+const d=progData[prog]||progData.leadership;
+document.title=d.pageTitle;
+document.getElementById('detailTitle').innerHTML=d.title;
+document.getElementById('detailTagline').textContent=d.tagline;
+document.getElementById('overviewTitle').innerHTML=d.overviewTitle;
+document.getElementById('overviewDesc').textContent=d.desc;
+document.getElementById('m-dur').textContent=d.dur;
+document.getElementById('m-hrs').textContent=d.hrs;
+document.getElementById('m-seats').textContent=d.seats;
+// Swap hero images
+hsTrack.innerHTML=d.images.map(s=>`<img src="${s}" style="flex-shrink:0;width:100%;height:90vh;object-fit:cover;">`).join('');
+
+/* PARTICIPANTS */
+function selPart(el){document.querySelectorAll('.part-opt').forEach(e=>e.classList.remove('sel'));el.classList.add('sel');}
+
+/* FORMS */
+function submitForm(type){
+  const msgs={meeting:'Thank you! Our advisor will contact you within 24 hours.',enroll:'Your enrollment has been received! We\'ll confirm your seat shortly.',group:'Group inquiry received! We\'ll prepare a custom proposal within 48 hours.'};
+  closeCModal();
+  alert(msgs[type]||'Submitted successfully!');
+}
+
+/* FADE UP */
+const fus=document.querySelectorAll('.fu');
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.08});
+fus.forEach(e=>obs.observe(e));
+</script>
+</body>
+</html>
