@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ELITE EDGE TRAINING | Premium Leadership Development</title>
+<title>Omar Faruk | Elite Leadership Coach</title>
+<link rel="icon" href="image/of logo.png" type="image/x-icon">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +18,6 @@
   }
 
   * { box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -49,7 +49,6 @@
     transform: translate(-50%,-50%);
     transition: all .12s ease-out;
   }
-  body:hover #cursor { opacity: 1; }
 
   /* TYPOGRAPHY */
   .display-font {
@@ -402,13 +401,6 @@
     background: rgba(255,77,0,0.05);
   }
 
-  /* FOOTER MAP */
-  .map-wrap {
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-
   /* FADE-IN ANIMATIONS */
   .fade-up {
     opacity: 0;
@@ -434,15 +426,6 @@
     letter-spacing: 0.08em;
     font-weight: 500;
     margin-top: 4px;
-  }
-
-  /* DIAGONAL STRIPE ACCENT */
-  .stripe-accent {
-    position: absolute;
-    width: 2px;
-    background: linear-gradient(to bottom, transparent, rgba(255,77,0,0.5), transparent);
-    border-radius: 2px;
-    pointer-events: none;
   }
 
   /* VIDEO SECTION */
@@ -495,51 +478,27 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero-bg min-h-screen flex flex-col relative" style="min-height:100svh;">
-
-  <!-- Vertical accent lines -->
-  <div class="stripe-accent" style="top:0;bottom:0;left:calc(50% - 1px);opacity:0.12;"></div>
-
-  <!-- TOP BAR -->
   <div class="flex justify-between items-center px-8 md:px-14 py-8 relative z-10">
-    <!-- Logo -->
     <a href="#" class="flex items-center gap-3 no-underline" style="cursor:none;">
-      <div style="width:44px;height:44px;background:var(--orange);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.25rem;letter-spacing:-0.02em;flex-shrink:0;">EE</div>
+      <div style="width:44px;height:44px;background:var(--orange);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.25rem;letter-spacing:-0.02em;flex-shrink:0;color:#fff;"><img src="image/of logo.png" alt="OF logo"></div>
       <div>
-        <div class="display-font font-black text-white" style="font-size:1.3rem;letter-spacing:0.05em;line-height:1;">ELITE EDGE</div>
-        <div style="font-size:0.6rem;letter-spacing:0.25em;color:rgba(255,255,255,0.4);font-weight:500;margin-top:2px;">TRAINING</div>
+        <div class="display-font font-black text-white" style="font-size:1.3rem;letter-spacing:0.05em;line-height:1;">OMAR FARUK</div>
+        <div style="font-size:0.6rem;letter-spacing:0.25em;color:rgba(255,255,255,0.4);font-weight:500;margin-top:2px;">ELITE LEADERSHIP COACH</div>
       </div>
     </a>
-
-    <button class="menu-btn" onclick="openMenu()">
-      MENU
-      <div class="arrow-box">→</div>
-    </button>
+    <button class="menu-btn" onclick="openMenu()">MENU <div class="arrow-box">→</div></button>
   </div>
 
-  <!-- MAIN HERO CONTENT -->
   <div class="flex-1 flex flex-col justify-end pb-14 px-8 md:px-14 relative z-10">
-    <!-- Headline -->
     <div class="mb-12 max-w-3xl">
-      <span class="section-label">Bangladesh's Premier</span>
-      <h1 class="display-font font-black text-white leading-none" style="font-size:clamp(3.5rem,9vw,7.5rem);">LEADERSHIP<br><span style="color:var(--orange);-webkit-text-stroke:0px;text-stroke:0px;">FORGED.</span><br>NOT TAUGHT.</h1>
+      <span class="section-label">BANGLADESH'S PREMIER LEADERSHIP COACH</span>
+      <h1 class="display-font font-black text-white leading-none" style="font-size:clamp(3.5rem,9vw,7.5rem);">LEADERSHIP<br><span style="color:var(--orange);">FORGED.</span><br>NOT TAUGHT.</h1>
     </div>
 
-    <!-- BOTTOM ROW: widget + stats + CTA -->
-    <div class="flex flex-wrap gap-6 items-end">
-
-      <!-- Left: Sliding widget -->
-      <div class="hero-widget" style="width:260px;flex-shrink:0;">
-        <div class="slider-wrap" style="height:170px;" id="heroSliderWrap" onmouseenter="pauseHero()" onmouseleave="resumeHero()">
-          <div class="slider-track" id="heroTrack" style="height:100%;"></div>
-        </div>
-        <div onclick="openGoogleForm()" style="padding:14px 16px;cursor:none;" class="group">
-          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.2em;color:var(--orange);margin-bottom:4px;">ONGOING SESSIONS</div>
-          <div style="font-size:0.82rem;color:rgba(255,255,255,0.6);">Click to register instantly →</div>
-        </div>
-      </div>
-
+    <!-- Stats + CTA row -->
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:2rem;">
       <!-- Stats -->
-      <div class="flex gap-8 ml-2">
+      <div class="flex gap-8">
         <div>
           <div class="stat-num">10<span style="color:var(--orange);">+</span></div>
           <div class="stat-label">YEARS ACTIVE</div>
@@ -557,20 +516,56 @@
       </div>
 
       <!-- CTA -->
-      <div class="ml-auto">
-        <button class="cta-btn" onclick="document.getElementById('trainings').scrollIntoView({behavior:'smooth'})" style="font-size:1.1rem;padding:1.1rem 2.4rem;">
-          EXPLORE PROGRAMS
-          <i class="fa-solid fa-arrow-right-long"></i>
-        </button>
-      </div>
-
+      <button class="cta-btn" onclick="document.getElementById('trainings').scrollIntoView({behavior:'smooth'})" style="font-size:1.1rem;padding:1.1rem 2.4rem;">
+        EXPLORE PROGRAMS
+        <i class="fa-solid fa-arrow-right-long"></i>
+      </button>
     </div>
   </div>
+</section>
 
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-40">
-    <div style="width:1px;height:40px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,0.6));"></div>
-    <span style="font-size:0.6rem;letter-spacing:0.25em;font-weight:600;">SCROLL</span>
+<!-- ===== CLIENT TICKER ===== -->
+<div style="background:#0a0a0a;padding:1.5rem 0;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);">
+  <div class="ticker-wrap">
+    <div class="ticker-inner" id="clientTicker"></div>
+  </div>
+</div>
+
+<!-- ===== TRAINER PROFILE ===== -->
+<section class="py-28 px-8 md:px-14" style="background:#0a0a0a;" id="trainer">
+  <div class="max-w-7xl mx-auto">
+    <span class="section-label">MEET THE COACH</span>
+    <div class="orange-line"></div>
+    <h2 class="display-font font-black leading-none mb-8" style="font-size:clamp(3rem,6vw,5.5rem);">OMAR FARUK</h2>
+    <div class="grid md:grid-cols-12 gap-16 items-center">
+      <div class="md:col-span-5">
+        <img src="image/omar photo.jpg" alt="OMAR FARUK" class="rounded-2xl w-full" style="object-fit:cover;max-height:580px;">
+      </div>
+      <div class="md:col-span-7">
+        <p style="font-size:1.1rem;color:rgba(255,255,255,0.75);line-height:1.85;">
+          With 15+ years of experience transforming leaders across Bangladesh and beyond, Omar Faruk is a Master Certified Coach who combines deep corporate experience with world-class facilitation skills. He has worked with Fortune 500 companies, government institutions, and Bangladesh's fastest-growing startups to develop extraordinary leaders.
+        </p>
+        <div class="mt-8 grid grid-cols-3 gap-8 text-center">
+          <div>
+            <div class="stat-num" style="font-size:3rem;">15<span style="color:var(--orange);">+</span></div>
+            <div class="stat-label">YEARS EXPERIENCE</div>
+          </div>
+          <div>
+            <div class="stat-num" style="font-size:3rem;">2K<span style="color:var(--orange);">+</span></div>
+            <div class="stat-label">LEADERS TRAINED</div>
+          </div>
+          <div>
+            <div class="stat-num" style="font-size:3rem;">50<span style="color:var(--orange);">+</span></div>
+            <div class="stat-label">CORPORATE CLIENTS</div>
+          </div>
+        </div>
+        <div class="mt-10">
+          <button class="cta-btn" style="font-size:1rem;padding:1rem 2rem;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            WORK WITH ME <i class="fa-solid fa-arrow-right-long"></i>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -578,55 +573,74 @@
 <section class="py-28 px-8 md:px-14" style="background:#0a0a0a;" id="about">
   <div class="max-w-7xl mx-auto">
     <div class="grid md:grid-cols-12 gap-16 items-start">
-
-      <!-- Left -->
       <div class="md:col-span-6 fade-up">
-        <span class="section-label">Who We Are</span>
+        <span class="section-label">WHO I AM</span>
         <div class="orange-line"></div>
-        <h2 class="display-font font-black leading-none mb-8" style="font-size:clamp(3rem,6vw,5.5rem);">ABOUT<br>ELITE EDGE</h2>
+        <h2 class="display-font font-black leading-none mb-8" style="font-size:clamp(3rem,6vw,5.5rem);">ABOUT<br>OMAR</h2>
         <p style="font-size:1.1rem;color:rgba(255,255,255,0.65);line-height:1.8;max-width:520px;">
-          Elite Edge delivers premium, high-impact leadership and professional development training across Bangladesh and beyond. With over a decade of excellence, we transform individuals and organizations through experiential learning that produces measurable, lasting results.
+          I help ambitious professionals and executives unlock their highest leadership potential through transformative, experiential training. My approach blends behavioral science, NLP, and real-world leadership frameworks to create lasting change — not just temporary inspiration.
         </p>
-        <div style="margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.08);">
-          <p style="color:rgba(255,255,255,0.4);font-size:0.85rem;letter-spacing:0.08em;font-weight:500;margin-bottom:1rem;">SERVING INDUSTRIES</p>
-          <div class="flex flex-wrap gap-3">
-            <span style="border:1px solid rgba(255,255,255,0.12);padding:.4rem 1.1rem;border-radius:100px;font-size:0.82rem;color:rgba(255,255,255,0.6);">Finance</span>
-            <span style="border:1px solid rgba(255,255,255,0.12);padding:.4rem 1.1rem;border-radius:100px;font-size:0.82rem;color:rgba(255,255,255,0.6);">Telecom</span>
-            <span style="border:1px solid rgba(255,255,255,0.12);padding:.4rem 1.1rem;border-radius:100px;font-size:0.82rem;color:rgba(255,255,255,0.6);">FMCG</span>
-            <span style="border:1px solid rgba(255,255,255,0.12);padding:.4rem 1.1rem;border-radius:100px;font-size:0.82rem;color:rgba(255,255,255,0.6);">Healthcare</span>
-            <span style="border:1px solid rgba(255,255,255,0.12);padding:.4rem 1.1rem;border-radius:100px;font-size:0.82rem;color:rgba(255,255,255,0.6);">Tech</span>
-          </div>
-        </div>
+        <p style="font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.8;max-width:520px;margin-top:1.5rem;">
+          Born and raised in Dhaka, I built my coaching practice from the ground up after a decade-long corporate career spanning banking, telecom, and technology sectors across South Asia.
+        </p>
       </div>
-
-      <!-- Right: Certifications -->
       <div class="md:col-span-6 fade-up" style="transition-delay:.15s;">
-        <div class="grid grid-cols-3 gap-4">
-          <div class="cert-card">
-            <div style="font-size:2.2rem;margin-bottom:.8rem;">🏅</div>
-            <div class="display-font font-black text-white" style="font-size:1.6rem;margin-bottom:.3rem;">ICF</div>
-            <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;font-weight:500;">ACCREDITED</div>
+        <div style="display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem;">
+          <div style="border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:1.8rem;display:flex;gap:1.2rem;align-items:flex-start;transition:border-color .3s;background:rgba(255,77,0,0.02);" onmouseover="this.style.borderColor='rgba(255,77,0,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+            <div style="width:48px;height:48px;background:var(--orange);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;color:#fff;"><i class="fa-solid fa-trophy"></i></div>
+            <div>
+              <div class="display-font font-black" style="font-size:1.3rem;margin-bottom:.3rem;">Award-Winning Trainer</div>
+              <div style="font-size:0.9rem;color:rgba(255,255,255,0.45);line-height:1.6;">Recognized as Bangladesh's Best Leadership Coach by the National Training Awards 2024</div>
+            </div>
           </div>
-          <div class="cert-card">
-            <div style="font-size:2.2rem;margin-bottom:.8rem;">📋</div>
-            <div class="display-font font-black text-white" style="font-size:1.6rem;margin-bottom:.3rem;">PMP</div>
-            <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;font-weight:500;">CERTIFIED</div>
+          <div style="border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:1.8rem;display:flex;gap:1.2rem;align-items:flex-start;transition:border-color .3s;background:rgba(255,77,0,0.02);" onmouseover="this.style.borderColor='rgba(255,77,0,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+            <div style="width:48px;height:48px;background:var(--orange);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;color:#fff;"><i class="fa-solid fa-globe"></i></div>
+            <div>
+              <div class="display-font font-black" style="font-size:1.3rem;margin-bottom:.3rem;">International Speaker</div>
+              <div style="font-size:0.9rem;color:rgba(255,255,255,0.45);line-height:1.6;">Keynoted at leadership conferences across South & Southeast Asia, including Singapore and Dubai</div>
+            </div>
           </div>
-          <div class="cert-card">
-            <div style="font-size:2.2rem;margin-bottom:.8rem;">⚙️</div>
-            <div class="display-font font-black text-white" style="font-size:1.3rem;margin-bottom:.3rem;">SIX SIGMA</div>
-            <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;font-weight:500;">BLACK BELT</div>
+          <div style="border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:1.8rem;display:flex;gap:1.2rem;align-items:flex-start;transition:border-color .3s;background:rgba(255,77,0,0.02);" onmouseover="this.style.borderColor='rgba(255,77,0,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+            <div style="width:48px;height:48px;background:var(--orange);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;color:#fff;"><i class="fa-solid fa-building"></i></div>
+            <div>
+              <div class="display-font font-black" style="font-size:1.3rem;margin-bottom:.3rem;">Corporate Training Expert</div>
+              <div style="font-size:0.9rem;color:rgba(255,255,255,0.45);line-height:1.6;">Partnered with 50+ leading organizations including Grameenphone, BRAC, bKash and Standard Chartered</div>
+            </div>
           </div>
-        </div>
-
-        <!-- Big quote / call-out -->
-        <div style="margin-top:1.5rem;background:rgba(255,77,0,0.07);border:1px solid rgba(255,77,0,0.2);border-radius:16px;padding:2rem;">
-          <div style="font-size:3rem;line-height:1;color:var(--orange);font-family:'Barlow Condensed',sans-serif;font-weight:900;margin-bottom:0.5rem;">"</div>
-          <p style="font-size:1rem;color:rgba(255,255,255,0.7);line-height:1.7;margin:0;">We don't train people to be better employees. We train them to become irreplaceable leaders.</p>
-          <div style="margin-top:1rem;font-size:0.8rem;color:rgba(255,77,0,0.7);font-weight:600;letter-spacing:0.1em;">— ELITE EDGE PHILOSOPHY</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
+<!-- ===== CERTIFICATIONS SECTION ===== -->
+<section class="py-28 px-8 md:px-14" style="background:#080808;" id="certifications">
+  <div class="max-w-7xl mx-auto">
+    <span class="section-label">CREDENTIALS</span>
+    <div class="orange-line"></div>
+    <h2 class="display-font font-black mb-12" style="font-size:clamp(2.5rem,5vw,4.2rem);">CERTIFICATIONS &amp; QUALIFICATIONS</h2>
+    
+    <div class="grid md:grid-cols-4 gap-6">
+      <div class="cert-card">
+        <img src="image/certi1.png" alt="ICF" class="mx-auto mb-6 rounded-xl">
+        <div class="display-font font-black text-xl">ICF Master Certified Coach</div>
+        <div class="text-sm text-gray-400 mt-1">International Coaching Federation • 2022</div>
+      </div>
+      <div class="cert-card">
+        <img src="image/certi2.webp" alt="PMP" class="mx-auto mb-6 rounded-xl">
+        <div class="display-font font-black text-xl">Project Management Professional (PMP)</div>
+        <div class="text-sm text-gray-400 mt-1">PMI • 2020</div>
+      </div>
+      <div class="cert-card">
+        <img src="image/certi3.jpg" alt="Six Sigma" class="mx-auto mb-6 rounded-xl">
+        <div class="display-font font-black text-xl">Six Sigma Black Belt</div>
+        <div class="text-sm text-gray-400 mt-1">ASQ • 2019</div>
+      </div>
+      <div class="cert-card">
+        <img src="image/cer2.png" alt="NLP" class="mx-auto mb-6 rounded-xl">
+        <div class="display-font font-black text-xl">NLP Master Practitioner</div>
+        <div class="text-sm text-gray-400 mt-1">AANLP • 2021</div>
+      </div>
     </div>
   </div>
 </section>
@@ -635,7 +649,7 @@
 <section class="py-8 px-8 md:px-14" style="background:#080808;">
   <div class="max-w-7xl mx-auto fade-up">
     <div style="position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);aspect-ratio:16/9;background:#111;">
-      <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1400&q=80" style="width:100%;height:100%;object-fit:cover;opacity:0.6;" alt="Video thumbnail">
+      <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600&q=80" style="width:100%;height:100%;object-fit:cover;opacity:0.5;" alt="Video thumbnail">
       <div class="video-overlay" onclick="openVideoModal()">
         <div style="text-align:center;">
           <div class="play-btn mx-auto mb-4"><i class="fa-solid fa-play" style="margin-left:5px;"></i></div>
@@ -646,13 +660,48 @@
   </div>
 </section>
 
-<!-- ===== CLIENTS TICKER ===== -->
-<section class="py-16" style="background:#0a0a0a;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);">
-  <div style="text-align:center;margin-bottom:2.5rem;">
-    <span class="section-label" style="display:block;">Trusted by Industry Leaders</span>
-  </div>
-  <div class="ticker-wrap">
-    <div class="ticker-inner" id="clientTicker"></div>
+<!-- ===== TESTIMONIALS ===== -->
+<section class="py-28 px-8 md:px-14" style="background:#0a0a0a;">
+  <div class="max-w-7xl mx-auto">
+    <span class="section-label">CLIENT VOICES</span>
+    <div class="orange-line"></div>
+    <h2 class="display-font font-black mb-12" style="font-size:clamp(2.5rem,5vw,4rem);">WHAT LEADERS SAY</h2>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="fade-up" style="background:#111;border:1px solid rgba(255,255,255,0.08);padding:2.5rem;border-radius:20px;transition:border-color .3s;" onmouseover="this.style.borderColor='rgba(255,77,0,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="color:var(--orange);font-size:2rem;margin-bottom:1rem;font-family:'Barlow Condensed',sans-serif;font-weight:900;line-height:1;">"</div>
+        <p style="color:rgba(255,255,255,0.7);line-height:1.8;font-size:0.95rem;">Omar transformed how I lead my team. The most impactful leadership program I've ever attended in Bangladesh.</p>
+        <div style="margin-top:2rem;display:flex;align-items:center;gap:1rem;">
+          <div style="width:48px;height:48px;background:linear-gradient(135deg,rgba(255,77,0,0.6),rgba(255,77,0,0.2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.1rem;flex-shrink:0;">SA</div>
+          <div>
+            <div style="font-weight:600;font-size:0.95rem;">Syed Ahmed</div>
+            <div style="font-size:0.8rem;color:rgba(255,255,255,0.4);">CEO, Bengal Tech</div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up" style="background:#111;border:1px solid rgba(255,255,255,0.08);padding:2.5rem;border-radius:20px;transition-delay:.1s;transition:border-color .3s;" onmouseover="this.style.borderColor='rgba(255,77,0,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="color:var(--orange);font-size:2rem;margin-bottom:1rem;font-family:'Barlow Condensed',sans-serif;font-weight:900;line-height:1;">"</div>
+        <p style="color:rgba(255,255,255,0.7);line-height:1.8;font-size:0.95rem;">The executive presence training helped me close a major deal. Highly recommended for any leader aiming for the next level.</p>
+        <div style="margin-top:2rem;display:flex;align-items:center;gap:1rem;">
+          <div style="width:48px;height:48px;background:linear-gradient(135deg,rgba(255,77,0,0.6),rgba(255,77,0,0.2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.1rem;flex-shrink:0;">NR</div>
+          <div>
+            <div style="font-weight:600;font-size:0.95rem;">Nadia Rahman</div>
+            <div style="font-size:0.8rem;color:rgba(255,255,255,0.4);">Director, Grameenphone</div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up" style="background:#111;border:1px solid rgba(255,255,255,0.08);padding:2.5rem;border-radius:20px;transition-delay:.2s;transition:border-color .3s;" onmouseover="this.style.borderColor='rgba(255,77,0,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="color:var(--orange);font-size:2rem;margin-bottom:1rem;font-family:'Barlow Condensed',sans-serif;font-weight:900;line-height:1;">"</div>
+        <p style="color:rgba(255,255,255,0.7);line-height:1.8;font-size:0.95rem;">Omar's coaching is practical, powerful and deeply personal. Changed my leadership style permanently.</p>
+        <div style="margin-top:2rem;display:flex;align-items:center;gap:1rem;">
+          <div style="width:48px;height:48px;background:linear-gradient(135deg,rgba(255,77,0,0.6),rgba(255,77,0,0.2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.1rem;flex-shrink:0;">KF</div>
+          <div>
+            <div style="font-weight:600;font-size:0.95rem;">Kazi Faisal</div>
+            <div style="font-size:0.8rem;color:rgba(255,255,255,0.4);">Managing Director, ACI Limited</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -690,12 +739,9 @@
               <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;margin-top:2px;">MAX SEATS</div>
             </div>
           </div>
-          <button 
-    class="outline-btn mt-8"
-    style="font-size:1rem; padding:.9rem 2rem;"
-    onclick="window.open('training-detail.html', '_blank')">
+          <a href="training-detail.html" class="outline-btn mt-8" style="font-size:1rem;padding:.9rem 2rem; display: inline-block; text-decoration: none;">
     LEARN MORE →
-</button>
+</a>
         </div>
       </div>
 
@@ -719,12 +765,9 @@
               <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;margin-top:2px;">MAX SEATS</div>
             </div>
           </div>
-          <button 
-    class="outline-btn mt-8"
-    style="font-size:1rem; padding:.9rem 2rem;"
-    onclick="window.open('training-detail.html', '_blank')">
+          <a href="training-detail.html" class="outline-btn mt-8" style="font-size:1rem;padding:.9rem 2rem; display: inline-block; text-decoration: none;">
     LEARN MORE →
-</button>
+</a>
         </div>
         <div class="slider-wrap rounded-2xl overflow-hidden order-flip" style="height:480px;border:1px solid rgba(255,255,255,0.07);order:2;" onmouseenter="pauseSlider('s2')" onmouseleave="resumeSlider('s2')">
           <div class="slider-track" id="sliderTrack-s2" style="height:100%;"></div>
@@ -754,12 +797,9 @@
               <div style="font-size:0.72rem;color:rgba(255,255,255,0.35);letter-spacing:0.1em;margin-top:2px;">MAX SEATS</div>
             </div>
           </div>
-         <button 
-    class="outline-btn mt-8"
-    style="font-size:1rem; padding:.9rem 2rem;"
-    onclick="window.open('training-detail.html', '_blank')">
+          <a href="training-detail.html" class="outline-btn mt-8" style="font-size:1rem;padding:.9rem 2rem; display: inline-block; text-decoration: none;">
     LEARN MORE →
-</button>
+</a>
         </div>
       </div>
 
@@ -837,8 +877,8 @@
     <!-- Left -->
     <div class="md:col-span-5 fade-up">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:2rem;">
-        <div style="width:52px;height:52px;background:var(--orange);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.4rem;flex-shrink:0;">EE</div>
-        <div class="display-font font-black" style="font-size:1.5rem;letter-spacing:0.05em;">ELITE EDGE</div>
+        <div style="width:52px;height:52px;background:var(--orange);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.4rem;flex-shrink:0;color:#fff;"><img src="image/of logo.png" alt="OF logo"></div>
+        <div class="display-font font-black" style="font-size:1.5rem;letter-spacing:0.05em;">OMAR FARUK</div>
       </div>
       <div class="orange-line"></div>
       <h2 class="display-font font-black" style="font-size:clamp(2.5rem,5vw,4rem);line-height:1.05;margin-bottom:1.5rem;">READY TO<br>ELEVATE?</h2>
@@ -851,7 +891,7 @@
         </div>
         <div style="display:flex;align-items:center;gap:1rem;">
           <div style="width:42px;height:42px;background:rgba(255,77,0,0.1);border:1px solid rgba(255,77,0,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-envelope" style="color:var(--orange);"></i></div>
-          <div style="font-size:0.9rem;color:rgba(255,255,255,0.55);">info@eliteedge.com.bd</div>
+          <div style="font-size:0.9rem;color:rgba(255,255,255,0.55);">info@omarfaruk.com.bd</div>
         </div>
         <div style="display:flex;align-items:center;gap:1rem;">
           <div style="width:42px;height:42px;background:rgba(255,77,0,0.1);border:1px solid rgba(255,77,0,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-phone" style="color:var(--orange);"></i></div>
@@ -887,25 +927,16 @@
 
 <!-- ===== FOOTER ===== -->
 <footer style="background:#050505;border-top:1px solid rgba(255,255,255,0.06);padding-top:3rem;">
-
-  <!-- Map -->
-  <div style="max-width:90%;margin:0 auto 3rem;" class="map-wrap">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116609.11786634815!2d90.34933385!3d23.7808875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b0a8c53be3%3A0x10ee0f84e50f7e41!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1234567890"
-      width="100%" height="380" style="border:0;display:block;" allowfullscreen loading="lazy">
-    </iframe>
-  </div>
-
   <div style="max-width:1200px;margin:0 auto;padding:0 2rem 3rem;">
-    <!-- Logo + address row -->
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:2rem;">
       <div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
-          <div style="width:36px;height:36px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1rem;">EE</div>
-          <span class="display-font font-black" style="font-size:1.15rem;letter-spacing:0.06em;">ELITE EDGE TRAINING</span>
+          <div style="width:36px;height:36px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1rem;color:#fff;"><img src="image/of logo.png" alt="OF logo"></div>
+          <span class="display-font font-black" style="font-size:1.15rem;letter-spacing:0.06em;">OMAR FARUK</span>
         </div>
         <div style="font-size:0.85rem;color:rgba(255,255,255,0.4);line-height:1.7;">
-          Gulshan-2, Dhaka-1212<br>Bangladesh
+          Elite Leadership Coaching<br>
+          Gulshan-2, Dhaka-1212, Bangladesh
         </div>
       </div>
 
@@ -924,9 +955,8 @@
         <a href="#" style="width:40px;height:40px;border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);text-decoration:none;transition:all .2s;cursor:none;font-size:1rem;" onmouseover="this.style.borderColor='var(--orange)';this.style.color='var(--orange)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='rgba(255,255,255,0.4)'"><i class="fa-brands fa-instagram"></i></a>
       </div>
     </div>
-
     <div style="font-size:0.78rem;color:rgba(255,255,255,0.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;">
-      <span>© 2026 Elite Edge Training. All Rights Reserved.</span>
+      <span>© 2026 Omar Faruk • Elite Edge. All Rights Reserved.</span>
       <span>Dhaka, Bangladesh</span>
     </div>
   </div>
@@ -937,15 +967,16 @@
   <div style="padding:2.5rem;">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4rem;">
       <div style="display:flex;align-items:center;gap:10px;">
-        <div style="width:36px;height:36px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;">EE</div>
-        <span class="display-font font-black" style="font-size:1.1rem;letter-spacing:0.06em;">ELITE EDGE</span>
+        <div style="width:36px;height:36px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;color:#fff;">OF</div>
+        <span class="display-font font-black" style="font-size:1.1rem;letter-spacing:0.06em;">OMAR FARUK</span>
       </div>
       <button onclick="closeMenu()" style="background:none;border:none;color:rgba(255,255,255,0.4);font-size:1.8rem;cursor:none;transition:color .2s;line-height:1;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">✕</button>
     </div>
     <nav style="display:flex;flex-direction:column;gap:0.2rem;padding-left:2.5rem;">
       <a href="#" class="menu-link" onclick="closeMenu()">HOME</a>
-      <a href="#about" class="menu-link" onclick="closeMenu()">ABOUT</a>
-      <a href="#trainings" class="menu-link" onclick="closeMenu()">TRAININGS</a>
+      <a href="#trainer" class="menu-link" onclick="closeMenu()">TRAINER</a>
+      <a href="#certifications" class="menu-link" onclick="closeMenu()">CERTIFICATIONS</a>
+      <a href="#trainings" class="menu-link" onclick="closeMenu()">PROGRAMS</a>
       <a href="#events" class="menu-link" onclick="closeMenu()">EVENTS</a>
       <a href="#contact" class="menu-link" onclick="closeMenu()">CONTACT</a>
     </nav>
@@ -966,7 +997,7 @@
   <div style="max-width:900px;width:90%;position:relative;" onclick="event.stopPropagation()">
     <button onclick="closeVideoModal()" style="position:absolute;top:-3rem;right:0;background:none;border:none;color:#fff;font-size:2rem;cursor:none;opacity:0.6;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">✕</button>
     <div style="aspect-ratio:16/9;border-radius:16px;overflow:hidden;">
-      <iframe id="videoFrame" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
+      <iframe id="videoFrame" width="100%" height="100%" src="image/Leadership Trainer Portfolio Videos- Download 118+ Free 4K & HD Stock Footage Clips.mp4" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 </div>
@@ -1023,7 +1054,7 @@ const sliderState = {};
 function buildSlider(id, images, height) {
   const track = document.getElementById('sliderTrack-' + id);
   if (!track) return;
-  track.innerHTML = images.map(src => `<img src="${src}" style="width:100%;height:${height}px;flex-shrink:0;" alt="">`).join('');
+  track.innerHTML = images.map(src => `<img src="${src}" style="width:100%;height:${height}px;flex-shrink:0;object-fit:cover;" alt="">`).join('');
   let idx = 0;
   const interval = setInterval(() => {
     idx = (idx + 1) % images.length;
@@ -1044,29 +1075,6 @@ function resumeSlider(id) {
   }, 3000);
 }
 
-/* ===== HERO SLIDER ===== */
-const heroTrack = document.getElementById('heroTrack');
-const heroImgs = [
-  'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80',
-  'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80',
-  'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&q=80'
-];
-heroTrack.innerHTML = heroImgs.map(s => `<img src="${s}" style="width:100%;height:170px;flex-shrink:0;object-fit:cover;" alt="">`).join('');
-let hi = 0;
-let heroInt = setInterval(() => {
-  hi = (hi + 1) % heroImgs.length;
-  heroTrack.style.transform = `translateX(-${hi * 100}%)`;
-}, 3200);
-
-function pauseHero() { clearInterval(heroInt); heroInt = null; }
-function resumeHero() {
-  if (heroInt) return;
-  heroInt = setInterval(() => {
-    hi = (hi + 1) % heroImgs.length;
-    heroTrack.style.transform = `translateX(-${hi * 100}%)`;
-  }, 3200);
-}
-
 /* ===== TRAINING SLIDERS ===== */
 buildSlider('s1', [
   'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80',
@@ -1085,10 +1093,10 @@ buildSlider('s3', [
 ], 480);
 
 /* ===== CLIENT TICKER ===== */
-const clients = ['Google','Microsoft','Unilever','Grameenphone','bKash','Robi','Square','ACI','Bashundhara','BRAC','Standard Chartered','Walton'];
+const clients = ['Google','Microsoft','Unilever','Grameenphone','bKash','Robi','Square Group','ACI Limited','Bashundhara','BRAC','Standard Chartered','Walton'];
 const ticker = document.getElementById('clientTicker');
 const doubled = [...clients, ...clients];
-ticker.innerHTML = doubled.map((c,i) => `<span class="ticker-item">${c}<span class="ticker-dot"></span></span>`).join('');
+ticker.innerHTML = doubled.map(c => `<span class="ticker-item">${c}<span class="ticker-dot"></span></span>`).join('');
 
 /* ===== SCROLL FADE-UP ===== */
 const fadeEls = document.querySelectorAll('.fade-up');
@@ -1102,7 +1110,7 @@ function openGoogleForm() { window.open('https://forms.google.com', '_blank'); }
 function submitForm() { alert('Thank you! We\'ll be in touch within 24 hours.'); }
 function openVideoModal() {
   const modal = document.getElementById('videoModal');
-  document.getElementById('videoFrame').src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
+  document.getElementById('videoFrame').src = 'image/Leadership Trainer Portfolio Videos- Download 118+ Free 4K & HD Stock Footage Clips.mp4';
   modal.style.display = 'flex';
 }
 function closeVideoModal() {
