@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>High-Performance Leadership | Elite Edge Training</title>
+<title>Omar Faruk | Training Detail</title>
+<link rel="icon" href="image/of logo.png" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -131,6 +132,34 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .part-opt{border:1.5px solid rgba(255,255,255,.12);border-radius:8px;padding:.8rem .6rem;text-align:center;font-size:.82rem;color:var(--wh2);cursor:none;transition:border-color .25s,color .25s,background .25s;}
 .part-opt:hover,.part-opt.sel{border-color:var(--or);color:var(--or);background:rgba(255,77,0,.08);}
 
+.module-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.02);
+}
+
+.module-option:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.2);
+}
+
+.module-option input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: var(--or);
+    transform: scale(1.1);
+}
+
+.module-option span {
+    color: var(--wh2);
+    line-height: 1.4;
+}
+
 /* CONTACT SECTION */
 .contact-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
 .contact-detail-img{border-radius:18px;overflow:hidden;aspect-ratio:4/3;}
@@ -196,16 +225,17 @@ footer{background:#050505;border-top:1px solid var(--bd);}
 <div id="sidemenu">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3rem;">
     <div class="logo">
-      <div class="logo-box">EE</div>
-      <div style="display:flex;flex-direction:column;"><span class="logo-name">ELITE EDGE</span><span class="logo-sub">TRAINING</span></div>
+      <div class="logo-box" style="padding:0;overflow:hidden;"><img src="image/of logo.png" alt="OF logo" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div style="display:flex;flex-direction:column;"><span class="logo-name">OMAR FARUK</span><span class="logo-sub">ELITE LEADERSHIP COACH</span></div>
     </div>
     <button onclick="closeMenu()" style="background:none;border:none;color:var(--wh3);font-size:1.8rem;cursor:none;transition:color .2s;line-height:1;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='var(--wh3)'">✕</button>
   </div>
   <div class="sm-div"></div>
   <nav style="display:flex;flex-direction:column;gap:.1rem;">
-    <a href="index.html#home" class="sm-link" onclick="closeMenu()">HOME</a>
-    <a href="index.html#about" class="sm-link" onclick="closeMenu()">ABOUT</a>
-    <a href="index.html#programs" class="sm-link" onclick="closeMenu()">TRAINING</a>
+    <a href="index.html" class="sm-link" onclick="closeMenu()">HOME</a>
+    <a href="index.html#trainer" class="sm-link" onclick="closeMenu()">TRAINER</a>
+    <a href="index.html#certifications" class="sm-link" onclick="closeMenu()">CERTIFICATIONS</a>
+    <a href="index.html#trainings" class="sm-link" onclick="closeMenu()">PROGRAMS</a>
     <a href="index.html#events" class="sm-link" onclick="closeMenu()">EVENTS</a>
     <a href="index.html#contact" class="sm-link" onclick="closeMenu()">CONTACT</a>
   </nav>
@@ -239,11 +269,11 @@ footer{background:#050505;border-top:1px solid var(--bd);}
 <!-- TOPBAR -->
 <div class="topbar">
   <a href="index.html" class="logo">
-    <div class="logo-box">EE</div>
-    <div style="display:flex;flex-direction:column;"><span class="logo-name">ELITE EDGE</span><span class="logo-sub">TRAINING</span></div>
+    <div class="logo-box" style="padding:0;overflow:hidden;"><img src="image/of logo.png" alt="OF logo" style="width:100%;height:100%;object-fit:cover;"></div>
+    <div style="display:flex;flex-direction:column;"><span class="logo-name">OMAR FARUK</span><span class="logo-sub">ELITE LEADERSHIP COACH</span></div>
   </a>
   <div style="display:flex;align-items:center;gap:1.5rem;">
-    <a href="index.html#programs" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.18em;color:var(--wh3);display:flex;align-items:center;gap:.5rem;cursor:none;transition:color .2s;" onmouseenter="this.style.color='var(--or)'" onmouseleave="this.style.color='var(--wh3)'">
+    <a href="index.html#trainings" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.18em;color:var(--wh3);display:flex;align-items:center;gap:.5rem;cursor:none;transition:color .2s;" onmouseenter="this.style.color='var(--or)'" onmouseleave="this.style.color='var(--wh3)'">
       <i class="fa-solid fa-arrow-left" style="font-size:.75rem;"></i> ALL PROGRAMS
     </a>
     <button class="menubtn" onclick="openMenu()">MENU <div class="menubtn-circle">→</div></button>
@@ -403,24 +433,76 @@ footer{background:#050505;border-top:1px solid var(--bd);}
         <input class="fi" type="text" placeholder="Company Name">
       </div>
       <div class="fi-full">
-        <label class="fi-label">SELECT MODULES (you can choose multiple)</label>
-        <select class="fi" multiple style="height:auto;min-height:130px;padding:.8rem;line-height:2;" size="6">
-          <option>Module 1 — Leadership Mindset & Purpose</option>
-          <option>Module 2 — Strategic Thinking & Decisions</option>
-          <option>Module 3 — Executive Presence</option>
-          <option>Module 4 — Emotional Intelligence</option>
-          <option>Module 5 — High-Performance Teams</option>
-          <option>Module 6 — Difficult Conversations</option>
-          <option>Module 7 — Culture & Change Leadership</option>
-          <option>Module 8 — Coaching & Mentoring Skills</option>
-          <option>Module 9 — Stakeholder Management</option>
-          <option>Module 10 — Innovation Leadership</option>
-          <option>Module 11 — Personal Effectiveness</option>
-          <option>Module 12 — Leadership Action Plan</option>
-          <option>All Modules (Full Program)</option>
-        </select>
-        <div style="font-size:.72rem;color:var(--wh3);margin-top:.4rem;">Hold Ctrl / Cmd to select multiple</div>
-      </div>
+    <label class="fi-label">SELECT MODULES (you can choose multiple)</label>
+    
+    <div class="modules-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px 24px; margin-top: 12px;">
+        
+        <label class="module-option">
+            <input type="checkbox" name="modules" value="Module 1">
+            <span>Module 1 — Leadership Mindset & Purpose</span>
+        </label>
+        
+        <label class="module-option">
+            <input type="checkbox" name="modules" value="Module 2">
+            <span>Module 2 — Strategic Thinking & Decisions</span>
+        </label>
+        
+        <label class="module-option">
+            <input type="checkbox" name="modules" value="Module 3">
+            <span>Module 3 — Executive Presence</span>
+        </label>
+        
+        <label class="module-option">
+            <input type="checkbox" name="modules" value="Module 4">
+            <span>Module 4 — Emotional Intelligence</span>
+        </label>
+        
+        <label class="module-option">
+            <input type="checkbox" name="modules" value="Module 5">
+            <span>Module 5 — High-Performance Teams</span>
+        </label>
+        
+        <label class="module-option">
+            <input type="checkbox" name="modules" value="Module 6">
+            <span>Module 6 — Difficult Conversations</span>
+        </label>
+        
+        <label class="module-option">
+            <input type="checkbox" name="modules" value="Module 7">
+            <span>Module 7 — Culture & Change Leadership</span>
+        </label>
+        
+        <label class="module-option">
+            <input type="checkbox" name="modules" value="Module 8">
+            <span>Module 8 — Coaching & Mentoring Skills</span>
+        </label>
+        
+        <label class="module-option">
+            <input type="checkbox" name="modules" value="Module 9">
+            <span>Module 9 — Stakeholder Management</span>
+        </label>
+        
+        <label class="module-option">
+            <input type="checkbox" name="modules" value="Module 10">
+            <span>Module 10 — Innovation Leadership</span>
+        </label>
+        
+        <label class="module-option">
+            <input type="checkbox" name="modules" value="Module 11">
+            <span>Module 11 — Personal Effectiveness</span>
+        </label>
+        
+        <label class="module-option">
+            <input type="checkbox" name="modules" value="Module 12">
+            <span>Module 12 — Leadership Action Plan</span>
+        </label>
+        
+        <label class="module-option" style="grid-column: 1 / -1;">
+            <input type="checkbox" name="modules" value="All Modules">
+            <span><strong>All Modules (Full Program)</strong></span>
+        </label>
+    </div>
+</div>
       <div class="fi-full">
         <label class="fi-label">PREFERRED DATE</label>
         <div class="cal-input"><input type="date" class="fi"></div>
@@ -435,22 +517,22 @@ footer{background:#050505;border-top:1px solid var(--bd);}
   <div class="inner">
     <div class="trainer-grid">
       <div class="trainer-img fu">
-        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80" alt="Lead Trainer">
+        <img src="image/omar photo.jpg" alt="Omar Faruk">
         <div class="trainer-badge">LEAD FACILITATOR</div>
       </div>
       <div class="fu" style="transition-delay:.12s;">
-        <div class="tag-logo">EE</div>
+        <div class="tag-logo" style="padding:0;overflow:hidden;"><img src="image/of logo.png" alt="OF logo" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
         <span class="sec-label">MEET YOUR TRAINER</span>
         <div style="width:44px;height:3px;background:var(--or);border-radius:2px;margin-bottom:1.5rem;"></div>
-        <h2 class="sec-h" style="margin-bottom:1.2rem;">RAHMAN CHOWDHURY</h2>
-        <p style="font-size:.85rem;font-weight:700;letter-spacing:.1em;color:var(--or);margin-bottom:1.2rem;">ICF MASTER CERTIFIED COACH · 15 YEARS EXPERIENCE</p>
+        <h2 class="sec-h" style="margin-bottom:1.2rem;">OMAR FARUK</h2>
+        <p style="font-size:.85rem;font-weight:700;letter-spacing:.1em;color:var(--or);margin-bottom:1.2rem;">ICF MASTER CERTIFIED COACH · 15+ YEARS EXPERIENCE</p>
         <p style="font-size:1rem;color:var(--wh2);line-height:1.85;margin-bottom:1.5rem;">
-          Rahman has trained over 2,000 leaders across Bangladesh, Southeast Asia, and the Middle East. A former corporate executive turned master coach, he brings deep industry experience combined with world-class facilitation that creates measurable leadership breakthroughs.
+          With 15+ years of experience transforming leaders across Bangladesh and beyond, Omar Faruk combines deep corporate experience with world-class facilitation skills. He has worked with Fortune 500 companies, government institutions, and Bangladesh's fastest-growing startups to develop extraordinary leaders.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:.6rem;">
           <span style="border:1px solid var(--bd);padding:.35rem 1rem;border-radius:100px;font-size:.78rem;color:var(--wh3);">ICF Master Coach</span>
           <span style="border:1px solid var(--bd);padding:.35rem 1rem;border-radius:100px;font-size:.78rem;color:var(--wh3);">PMP Certified</span>
-          <span style="border:1px solid var(--bd);padding:.35rem 1rem;border-radius:100px;font-size:.78rem;color:var(--wh3);">NLP Practitioner</span>
+          <span style="border:1px solid var(--bd);padding:.35rem 1rem;border-radius:100px;font-size:.78rem;color:var(--wh3);">NLP Master Practitioner</span>
           <span style="border:1px solid var(--bd);padding:.35rem 1rem;border-radius:100px;font-size:.78rem;color:var(--wh3);">Six Sigma Black Belt</span>
         </div>
       </div>
@@ -514,7 +596,7 @@ footer{background:#050505;border-top:1px solid var(--bd);}
         <h2 class="sec-h" style="margin-bottom:2rem;">LET'S TALK</h2>
         <div class="cd-item"><div class="cdi-icon"><i class="fa-solid fa-location-dot"></i></div><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;margin-bottom:2px;">OUR LOCATION</div><div style="font-size:.9rem;color:var(--wh2);">Gulshan-2, Dhaka-1212, Bangladesh</div></div></div>
         <div class="cd-item"><div class="cdi-icon"><i class="fa-solid fa-phone"></i></div><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;margin-bottom:2px;">PHONE</div><div style="font-size:.9rem;color:var(--wh2);">+880 1700 000 000</div></div></div>
-        <div class="cd-item"><div class="cdi-icon"><i class="fa-solid fa-envelope"></i></div><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;margin-bottom:2px;">EMAIL</div><div style="font-size:.9rem;color:var(--wh2);">info@eliteedge.com.bd</div></div></div>
+        <div class="cd-item"><div class="cdi-icon"><i class="fa-solid fa-envelope"></i></div><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;margin-bottom:2px;">EMAIL</div><div style="font-size:.9rem;color:var(--wh2);">info@omarfaruk.com.bd</div></div></div>
         <div class="cd-item"><div class="cdi-icon"><i class="fa-solid fa-clock"></i></div><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;margin-bottom:2px;">OFFICE HOURS</div><div style="font-size:.9rem;color:var(--wh2);">Sunday – Thursday, 9:00 AM – 6:00 PM</div></div></div>
         <div style="margin-top:2rem;display:flex;gap:1rem;">
           <a href="#" class="soc"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -541,27 +623,27 @@ footer{background:#050505;border-top:1px solid var(--bd);}
     <div class="footer-grid">
       <div>
         <div class="logo" style="margin-bottom:.8rem;">
-          <div class="logo-box" style="width:36px;height:36px;font-size:.95rem;">EE</div>
-          <div style="display:flex;flex-direction:column;"><span class="logo-name">ELITE EDGE TRAINING</span></div>
+          <div class="logo-box" style="width:36px;height:36px;padding:0;overflow:hidden;"><img src="image/of logo.png" alt="OF logo" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div style="display:flex;flex-direction:column;"><span class="logo-name">OMAR FARUK</span><span class="logo-sub">ELITE LEADERSHIP COACH</span></div>
         </div>
         <div class="footer-addr">Gulshan-2, Dhaka-1212<br>Bangladesh</div>
       </div>
       <nav class="footer-nav">
         <a href="index.html">HOME</a>
         <a href="index.html#about">ABOUT</a>
-        <a href="index.html#programs">TRAINING</a>
+        <a href="index.html#trainings">TRAINING</a>
         <a href="index.html#events">EVENTS</a>
         <a href="index.html#contact">CONTACT</a>
       </nav>
       <div class="footer-socials">
         <a href="#" class="soc"><i class="fa-brands fa-linkedin-in"></i></a>
         <a href="#" class="soc"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#" class="soc"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" class="fa-brands fa-youtube soc"><i class="fa-brands fa-youtube"></i></a>
         <a href="#" class="soc"><i class="fa-brands fa-instagram"></i></a>
       </div>
     </div>
     <div class="footer-copy">
-      <span>© 2026 Elite Edge Training. All Rights Reserved.</span>
+      <span>© 2026 Omar Faruk • Elite Edge. All Rights Reserved.</span>
       <span>Dhaka, Bangladesh</span>
     </div>
   </div>
@@ -604,21 +686,21 @@ const progData={
     overviewTitle:'TRANSFORM HOW<br>YOU LEAD',desc:'Elite Edge\'s High-Performance Leadership program is built for professionals ready to break through leadership plateaus and achieve transformational results.',
     dur:'3',hrs:'24',seats:'20',
     images:['https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=80','https://images.unsplash.com/photo-1552581234-26160f608093?w=1600&q=80','https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&q=80','https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80'],
-    pageTitle:'High-Performance Leadership | Elite Edge Training'
+    pageTitle:'High-Performance Leadership | Omar Faruk'
   },
   sales:{
     title:'SALES MASTERY<br>& NEGOTIATION',tagline:'Close bigger deals with confidence using proven psychological frameworks.',
     overviewTitle:'CLOSE MORE,<br>WIN MORE',desc:'Grounded in behavioral economics, NLP, and real-world negotiation frameworks tested across high-ticket sales environments and Fortune 500 companies.',
     dur:'2',hrs:'16',seats:'25',
     images:['https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600&q=80','https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80','https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600&q=80'],
-    pageTitle:'Sales Mastery & Negotiation | Elite Edge Training'
+    pageTitle:'Sales Mastery & Negotiation | Omar Faruk'
   },
   speaking:{
     title:'PUBLIC SPEAKING<br>& PRESENCE',tagline:'Command any room with authority, authenticity, and unforgettable impact.',
     overviewTitle:'OWN EVERY<br>ROOM YOU ENTER',desc:'From boardrooms to keynote stages — develop your voice, body language, and storytelling with real performance coaching from world-class facilitators.',
     dur:'1',hrs:'8',seats:'15',
     images:['https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1600&q=80','https://images.unsplash.com/photo-1530099486328-e021101a494a?w=1600&q=80','https://images.unsplash.com/photo-1559223607-b4d0555ae227?w=1600&q=80'],
-    pageTitle:'Public Speaking & Presence | Elite Edge Training'
+    pageTitle:'Public Speaking & Presence | Omar Faruk'
   }
 };
 const d=progData[prog]||progData.leadership;
